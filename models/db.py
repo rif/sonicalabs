@@ -9,8 +9,7 @@
 ## be redirected to HTTPS, uncomment the line below:
 # request.requires_https()
 
-if not request.env.web2py_runtime_gae:
-    ## if NOT running on Google App Engine use SQLite or other DB
+if not request.env.web2py_runtime_gae:    
     db = DAL('sqlite://storage.sqlite')
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
@@ -29,16 +28,6 @@ response.generic_patterns = ['*'] if request.is_local else []
 # response.optimize_css = 'concat,minify,inline'
 # response.optimize_js = 'concat,minify,inline'
 
-#########################################################################
-## Here is sample code if you need for
-## - email capabilities
-## - authentication (registration, login, logout, ... )
-## - authorization (role based authorization)
-## - services (xml, csv, json, xmlrpc, jsonrpc, amf, rss)
-## - old style crud actions
-## (more options discussed in gluon/tools.py)
-#########################################################################
-
 from gluon.tools import Auth, Crud, Service, PluginManager, prettydate
 auth = Auth(db, hmac_key=Auth.get_or_create_key())
 crud, service, plugins = Crud(db), Service(), PluginManager()
@@ -49,8 +38,8 @@ auth.define_tables()
 ## configure email
 mail=auth.settings.mailer
 mail.settings.server = 'logging' or 'smtp.gmail.com:587'
-mail.settings.sender = 'you@gmail.com'
-mail.settings.login = 'username:password'
+mail.settings.sender = 'sonicalbs@gmail.com'
+mail.settings.login = 'ustest:greta.1'
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False
@@ -62,20 +51,11 @@ auth.settings.reset_password_requires_verification = True
 from gluon.contrib.login_methods.rpx_account import use_janrain
 use_janrain(auth,filename='private/janrain.key')
 
-#########################################################################
-## Define your tables below (or better in another model file) for example
-##
-## >>> db.define_table('mytable',Field('myfield','string'))
-##
-## Fields can be 'string','text','password','integer','double','boolean'
-##       'date','time','datetime','blob','upload', 'reference TABLENAME'
-## There is an implicit 'id integer autoincrement' field
-## Consult manual for more options, validators, etc.
-##
-## More API examples for controllers:
-##
-## >>> db.mytable.insert(myfield='value')
-## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
-## >>> for row in rows: print row.id, row.myfield
-#########################################################################
+db.define_table("sounds",
+     Field('title', required=True),
+     Field('description', 'text'),
+     Field('data', 'blob'),
+     Field('file', 'upload', uploadfield='data'),
+)
 
+a0,a1 = request.args(0), request.args(1)
