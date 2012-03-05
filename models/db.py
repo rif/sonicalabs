@@ -61,9 +61,10 @@ db.define_table("sounds",
     Field('description', 'text'),
     Field('data', 'blob'),
     Field('file', 'upload', uploadfield='data'),
-    Field('play_count', 'integer', readable=False, writable=False, default=0),
+    Field('play_count', 'integer', readable=False, writable=False, default=0),    
     auth.signature,
     format='%(title)s'
 )
+db.sounds.mime_type = Field.Virtual(lambda row: 'audio/ogg' if row.sounds.file.rsplit('.', 1)[-1] == 'ogg' else 'audio/mpeg')
 
 a0,a1 = request.args(0), request.args(1)

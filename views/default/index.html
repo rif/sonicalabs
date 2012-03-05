@@ -23,7 +23,7 @@
 <td>{{=s.description}}</td>
 <td>
   <audio controls="controls" loop="loop">
-    <source src="{{=URL('download', args=s.file)}}" type="audio/ogg" />    
+    <source src="{{=URL('download', args=s.file)}}" type="{{=s.mime_type}}" />    
     {{=T('Your browser does not support the audio element.')}}
   </audio>
 </td>
