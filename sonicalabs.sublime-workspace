@@ -1,0 +1,1059 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"temp",
+				"templateFiles	[]string ν"
+			],
+			[
+				"Vol",
+				"VolumeDiscountThresholds	[]*VolumeDiscount ν"
+			],
+			[
+				"De",
+				"DeepEqual	bool ƒ"
+			],
+			[
+				"strin",
+				"strings"
+			],
+			[
+				"set",
+				"setVolumeDiscountSeconds	error ƒ"
+			],
+			[
+				"new",
+				"NewDecoder"
+			],
+			[
+				"New",
+				"NewEncoder"
+			],
+			[
+				"dest",
+				"destination	*Destination ν"
+			],
+			[
+				"en",
+				"encAP	*gob.Encoder ν"
+			],
+			[
+				"Act",
+				"ActivationPeriod	struct ʈ"
+			],
+			[
+				"Ac",
+				"ActivationPeriods	[]*ActivationPeriod ν"
+			],
+			[
+				"Min",
+				"MinuteBuckets	[]*MinuteBucket ν"
+			],
+			[
+				"Re",
+				"RecivedCallBonus	struct ʈ"
+			],
+			[
+				"S",
+				"SmsCredit"
+			],
+			[
+				"rec",
+				"RecivedCallBonus	*RecivedCallBonus ν"
+			],
+			[
+				"In",
+				"Interval	struct ʈ"
+			],
+			[
+				"resul",
+				"result1	string ν"
+			],
+			[
+				"te",
+				"testGob	 ƒ"
+			],
+			[
+				"Key",
+				"KeyValue	struct ʈ"
+			],
+			[
+				"key",
+				"KeyValue	struct ʈ"
+			],
+			[
+				"im",
+				"imerdiat	string ν"
+			],
+			[
+				"Get",
+				"GetKey	string ƒ"
+			],
+			[
+				"Add",
+				"AddActivationPeriod	 ƒ"
+			],
+			[
+				"Set",
+				"SetActivationPeriods	error ƒ"
+			],
+			[
+				"un",
+				"Unlock	 ƒ"
+			],
+			[
+				"A",
+				"ActivationPeriod	struct ʈ"
+			],
+			[
+				"tar",
+				"tariffPlan	*TariffPlan ν"
+			],
+			[
+				"ca",
+				"callCost	*CallCost ν"
+			],
+			[
+				"stora",
+				"storageGetter	StorageGetter ν"
+			],
+			[
+				"Call",
+				"CallDescriptor	struct ʈ"
+			],
+			[
+				"user",
+				"userBudget	*UserBudget ν"
+			],
+			[
+				"per",
+				"percentageDiscount	 ν"
+			],
+			[
+				"userbu",
+				"userBudget	 ν"
+			],
+			[
+				"get",
+				"getVolumeDiscount	float64, error ƒ"
+			],
+			[
+				"Vo",
+				"VolumeDiscount	struct ʈ"
+			],
+			[
+				"Volu",
+				"VolumeDiscount	struct ʈ"
+			],
+			[
+				"Destin",
+				"DestinationId"
+			],
+			[
+				"Pr",
+				"Priority"
+			],
+			[
+				"Mi",
+				"MinuteBuckets	[]*MinuteBucket ν"
+			],
+			[
+				"minu",
+				"MinuteBuckets	[]*MinuteBucket ν"
+			],
+			[
+				"SM",
+				"SmsCredit	float64 ν"
+			],
+			[
+				"Am",
+				"Amount"
+			],
+			[
+				"ava",
+				"availableSeconds	 ν"
+			],
+			[
+				"use",
+				"userBudget"
+			],
+			[
+				"u",
+				"userBudget"
+			],
+			[
+				"debit",
+				"debitSecondsHandler	 ƒ"
+			],
+			[
+				"Debit",
+				"debitMoneyBudget	float64 ƒ"
+			],
+			[
+				"Deb",
+				"DebitCents"
+			],
+			[
+				"float",
+				"float64"
+			],
+			[
+				"Ca",
+				"CallDescriptor	struct ʈ"
+			],
+			[
+				"ori",
+				"orig_maxSessionSeconds	int ν"
+			],
+			[
+				"mac",
+				"maxSessionSeconds	int ν"
+			],
+			[
+				"time",
+				"timespans	[]*TimeSpan ν"
+			],
+			[
+				"Time",
+				"Timespans	[]*TimeSpan ν"
+			],
+			[
+				"err",
+				"Errorf	 ƒ"
+			],
+			[
+				"maxSess",
+				"maxSessionSeconds	int ν"
+			],
+			[
+				"max",
+				"maxSessionSeconds	int ν"
+			],
+			[
+				"rif",
+				"rifsBudget	*UserBudget ν"
+			],
+			[
+				"ri",
+				"rifsBudget	*UserBudget ν"
+			],
+			[
+				"SMS",
+				"SmsCredit	int ν"
+			],
+			[
+				"avai",
+				"avaliableNbSeconds	float64 ν"
+			],
+			[
+				"bu",
+				"bucketList	bucketsorter ν"
+			],
+			[
+				"Use",
+				"UserBudget	struct ʈ"
+			],
+			[
+				"func",
+				"func	func ([receiver]) {...} ʂ"
+			],
+			[
+				"imp",
+				"import	import (...) ʂ"
+			],
+			[
+				"tim",
+				"timespans"
+			],
+			[
+				"in",
+				"inputfile"
+			],
+			[
+				"st",
+				"string"
+			],
+			[
+				"Acti",
+				"ActivationPeriods"
+			],
+			[
+				"Wee",
+				"WeekDays"
+			],
+			[
+				"int",
+				"intervalString"
+			],
+			[
+				"Week",
+				"Weekday"
+			],
+			[
+				"Activation",
+				"ActivationPeriod"
+			],
+			[
+				"Co",
+				"ConnectFee"
+			],
+			[
+				"Tim",
+				"TimeEnd"
+			],
+			[
+				"TimeS",
+				"TimeStart"
+			],
+			[
+				"spli",
+				"splitTime"
+			],
+			[
+				"spl",
+				"splitTime"
+			],
+			[
+				"Des",
+				"DestinationPrefix"
+			],
+			[
+				"sta",
+				"StartHour"
+			],
+			[
+				"Month",
+				"MonthDay"
+			],
+			[
+				"end",
+				"endblock"
+			],
+			[
+				"s",
+				"size"
+			],
+			[
+				"hi",
+				"history"
+			],
+			[
+				"order",
+				"order"
+			],
+			[
+				"Menu",
+				"MenuOfTheDay"
+			],
+			[
+				"menu",
+				"menu_of_the_day"
+			],
+			[
+				"topp",
+				"topping"
+			],
+			[
+				"desire",
+				"desired_delivery_time"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"endi",
+				"endif"
+			],
+			[
+				"inpu",
+				"input"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ABOUT",
+			"settings":
+			{
+				"buffer_size": 190,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/goinstall.sublime-build",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"go",
+				"Package Control: List Packages"
+			],
+			[
+				"spac",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"hg",
+				"SublimeHg: Open Hg Command Prompt"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"spa",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"",
+				"Indentation: Convert to Spaces"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 136.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/rif/Documents/webframeworks/sonicalabs/app.yaml",
+		"/home/rif/Documents/webframeworks/sonicalabs/sonicalabs.py",
+		"/home/rif/Documents/webframeworks/sonicalabs/.gitignore",
+		"/home/rif/Documents/webframeworks/sonicalabs/sonicalabs/sonicalabs.go",
+		"/home/rif/Documents/webframeworks/sonicalabs/templates/index.tmpl",
+		"/home/rif/Documents/webframeworks/sonicalabs/README.md",
+		"/home/rif/Documents/webframeworks/sonicalabs/home/home.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/tariff_plans_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/storage_mongo.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/storage_kyoto.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/activationperiod_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/calldesc_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/destinations_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/userbudget_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/timespans_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/minute_buckets_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/kyoto_storage.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/redis_storage.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/loader/loader.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/stress/spansstress/spansstress.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/userbudget.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/calldesc.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/activationperiod.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/rater/rater.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/balancer/jsonrpc_responder.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/balancer/http_responder.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/stress/balancerstress/balancerstress.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/balancer/balancer.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/timespans.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/destinations.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/tariff_plans.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/minute_buckets.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/balancer/raterlist.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/rater/registration.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/storage_interface.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/mongo_storage.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/test_activation_periods.json",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/test_tariffplans.json",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/test_userbudgets.json",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/jsonrpc_responder.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/inquirer.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/http_responder.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/loader/input.json",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/intervals.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/test_destinations.json",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/README.md",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/.gitignore",
+		"/home/rif/.Sublime Text 2/Packages/User/goinstall.sublime-build",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/debitor.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/README",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/loader/redis/redis_loader.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/interval_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/loader/kyoto/kyoto_loader.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/stresstest/stresstest.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/stresstest/stresstest.py",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timespans/calldescription.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/intervals.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/interval_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/timeslots.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/timeslots_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/kyoto_storage.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/redis_storage.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/timeslots/storage_interface.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/balancer.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/balancer_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/inquirer_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/registration.go",
+		"/home/rif/Documents/prog/go/src/github.com/rif/cgrates/cmd/inquirer/responder.go",
+		"/home/rif/Documents/webframeworks/bucatar/restaurant/views.py",
+		"/home/rif/Documents/webframeworks/bucatar/apache/supervizor/sentry.conf",
+		"/home/rif/Documents/webframeworks/bucatar/click2eat.pp",
+		"/home/rif/Documents/webframeworks/bucatar/rsv/urls.py",
+		"/home/rif/Documents/webframeworks/bucatar/rsv/views.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/rsv/index.html",
+		"/home/rif/Documents/webframeworks/bucatar/order/shopping_service.py",
+		"/home/rif/Documents/webframeworks/bucatar/restaurant/models.py",
+		"/home/rif/Documents/webframeworks/bucatar/settings_dev.py",
+		"/home/rif/Documents/webframeworks/bucatar/urls.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/base_alt.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/userprofiles/deliveryaddress_detail.html",
+		"/home/rif/Documents/webframeworks/bucatar/media/sass/screen.sass",
+		"/home/rif/Documents/webframeworks/bucatar/order/views.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/shopping_cart.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/restaurant/unit_detail.html",
+		"/home/rif/Documents/webframeworks/bucatar/order/urls.py",
+		"/home/rif/Documents/webframeworks/bucatar/order/templatetags/order_tags.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/header.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/registration/registration_form.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/restaurant_order_detail.html",
+		"/home/rif/factorial.go",
+		"/home/rif/Documents/webframeworks/bucatar/menu/views.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/restaurant/unit_list.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/mobile/shopping_cart.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/reclame.html",
+		"/home/rif/Documents/webframeworks/bucatar/restaurant/admin.py",
+		"/home/rif/Documents/webframeworks/bucatar/userprofiles/models.py",
+		"/home/rif/Documents/webframeworks/bucatar/menu/models.py",
+		"/home/rif/Documents/webframeworks/bucatar/order/shopping_cart.py",
+		"/home/rif/Documents/webframeworks/bucatar/menu/admin.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/menu/menu_list.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/admin/base_site.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/menu/item_list.html",
+		"/home/rif/Documents/webframeworks/bucatar/userprofiles/views.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/messages.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/menu/daily_menu.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/userprofiles/deliveryaddress_form.html",
+		"/home/rif/Documents/webframeworks/bucatar/restaurant/templatetags/units.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/biblion/blog_list.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/biblion/blog_post.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/comments/base.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/order_detail.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/profiles/profile_detail.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/timer.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/restaurant/index.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/footer.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/wheel/random_item.html",
+		"/home/rif/Documents/webframeworks/bucatar/media/sass/ie.sass",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/confirmation_email.html",
+		"/home/rif/Documents/webframeworks/bucatar/order/forms.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/send_confirmation.html",
+		"/home/rif/Documents/webframeworks/bucatar/bonus/views.py",
+		"/home/rif/Documents/webframeworks/bucatar/templates/bonus/history.html",
+		"/home/rif/Documents/webframeworks/bucatar/templates/order/restaurant_order_list.html",
+		"/home/rif/Documents/webframeworks/bucatar/order/admin.py",
+		"/home/rif/Documents/webframeworks/bucatar/order/tests.py",
+		"/home/rif/Documents/webframeworks/bucatar/bonus/urls.py",
+		"/home/rif/Documents/webframeworks/bucatar/bonus/tests.py",
+		"/home/rif/Documents/webframeworks/bucatar/bonus/models.py"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"test.kch",
+			"gob",
+			"TestTariffPlanMongoStore",
+			"gob",
+			"json",
+			"gob",
+			"rs",
+			"decUB",
+			"decTP",
+			"decDest",
+			"decAP",
+			"encUB",
+			"encTP",
+			"encDest",
+			"encAP",
+			"decTP",
+			"encUB",
+			"decUB",
+			"encTP",
+			"decDest",
+			"encDest",
+			"decAP",
+			"encAp",
+			"rs",
+			"writeBuf",
+			"var writeBuf bytes.Buffer",
+			"var rs.buf bytes.Buffer",
+			"writeBuf",
+			"Minute",
+			"MinuteCos",
+			"json",
+			"josn",
+			"json",
+			"gob",
+			"RestoreFromStorage",
+			"json",
+			"ks",
+			"}",
+			"tariff",
+			"StorageGetter",
+			"userB",
+			"GetCost",
+			"getSeco",
+			")",
+			"Activ",
+			"TestMin",
+			"userBudget",
+			"log",
+			"BucketSorter",
+			"storageGetter",
+			"\"",
+			"intervalString",
+			"StartHour",
+			"EndHour",
+			"StartHour",
+			"EndHour",
+			"StartHour",
+			"ActivationPero",
+			"timeslots",
+			"CallDescription",
+			"new_span",
+			"splitTime",
+			"2009",
+			"cache",
+			"session",
+			"carts",
+			"hide",
+			"incr",
+			"carts",
+			"count =",
+			"oc.",
+			"count",
+			"selectCart",
+			"pageLinks",
+			"itemTemplate",
+			"get_cart_name",
+			"%s:",
+			"user",
+			"pos",
+			"get_unit",
+			"pos",
+			"print",
+			"shc",
+			"set_count",
+			"clea",
+			"confirm-o",
+			"confirm_order",
+			"daily_menu",
+			"total",
+			"st",
+			"shopping_cart",
+			"auth",
+			"login",
+			"tiny",
+			"back",
+			"cac",
+			"item",
+			"continu",
+			"tabla",
+			"600",
+			"get_pro",
+			"400px",
+			"detail",
+			"pozrel",
+			"font-famil",
+			"'Cardo'",
+			"font-family",
+			"render_to_string",
+			"star",
+			"email",
+			"lang",
+			"float",
+			"MultilingualModel",
+			"} else {\n        $(\"#orderhistory\").slideToggle();\n      }",
+			"grapp",
+			"'CR'",
+			"_(",
+			"Bonus",
+			"tool",
+			"click",
+			"print",
+			"totalno",
+			"comanda",
+			"cart",
+			"*",
+			"geopy",
+			"invite",
+			"ajax"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"../data/test.kch",
+			"json",
+			"gob",
+			"json",
+			"ks",
+			"dec",
+			"enc",
+			"dec",
+			"enc",
+			"dec",
+			"enc",
+			"dec",
+			"enc",
+			"dec",
+			"enc",
+			"ks",
+			"rs.buf",
+			"rs.buf.Reset()",
+			"rs.buf",
+			"gob",
+			"json",
+			"SearchStorageForPrefix",
+			"gob",
+			"rs",
+			"storageGetter",
+			"bucketsorter",
+			"StorageGetter",
+			"is",
+			"StartTime",
+			"EndTime",
+			"StartTime",
+			"EndTime",
+			"StartTime",
+			"timespans",
+			"CallDescriptor",
+			"nts",
+			"2012",
+			"Cardo",
+			"item",
+			"assertEqual"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ABOUT",
+					"settings":
+					{
+						"buffer_size": 190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								182,
+								182
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"call",
+				"timespans/calldesc.go"
+			],
+			[
+				"unit",
+				"templates/restaurant/unit_detail.html"
+			],
+			[
+				"bas",
+				"templates/base_alt.html"
+			],
+			[
+				"uni",
+				"templates/restaurant/unit_detail.html"
+			],
+			[
+				"shop",
+				"templates/order/shopping_cart.html"
+			],
+			[
+				"sho",
+				"templates/mobile/shopping_cart.html"
+			],
+			[
+				"menu",
+				"templates/menu/menu_list.html"
+			],
+			[
+				"base",
+				"templates/base_alt.html"
+			],
+			[
+				"un",
+				"templates/restaurant/unit_detail.html"
+			],
+			[
+				"scre",
+				"media/sass/screen.sass"
+			],
+			[
+				"tim",
+				"templates/order/timer.html"
+			],
+			[
+				"pro",
+				"templates/profiles/profile_detail.html"
+			],
+			[
+				"scr",
+				"media/sass/screen.sass"
+			],
+			[
+				"whe",
+				"templates/wheel/random_item.html"
+			],
+			[
+				"inde",
+				"templates/restaurant/index.html"
+			],
+			[
+				"footer",
+				"templates/footer.html"
+			],
+			[
+				"scree",
+				"media/sass/screen.sass"
+			],
+			[
+				"recl",
+				"templates/reclame.html"
+			],
+			[
+				"send",
+				"templates/order/send_confirmation.html"
+			],
+			[
+				"vi",
+				"order/views.py"
+			],
+			[
+				"sen",
+				"templates/order/send_confirmation.html"
+			],
+			[
+				"profil",
+				"templates/profiles/profile_detail.html"
+			],
+			[
+				"test",
+				"order/tests.py"
+			],
+			[
+				"dail",
+				"templates/menu/daily_menu.html"
+			],
+			[
+				"",
+				"templates/menu/daily_menu.html"
+			],
+			[
+				"header",
+				"templates/header.html"
+			],
+			[
+				"foot",
+				"templates/footer.html"
+			],
+			[
+				"das",
+				"dashboard.py"
+			],
+			[
+				"mode",
+				"restaurant/models.py"
+			],
+			[
+				"dash",
+				"dashboard.py"
+			],
+			[
+				"shopp",
+				"templates/order/shopping_cart.html"
+			],
+			[
+				"address",
+				"templates/userprofiles/deliveryaddress_detail.html"
+			],
+			[
+				"model",
+				"order/models.py"
+			],
+			[
+				"resta",
+				"templates/order/restaurant_order_detail.html"
+			],
+			[
+				"rand",
+				"templates/wheel/random_item.html"
+			],
+			[
+				"item",
+				"templates/menu/item_list.html"
+			],
+			[
+				"sett",
+				"settings_dev.py"
+			],
+			[
+				"foo",
+				"templates/footer.html"
+			],
+			[
+				"post",
+				"templates/biblion/blog_post.html"
+			],
+			[
+				"blog",
+				"templates/biblion/blog_list.html"
+			],
+			[
+				"viw",
+				"mobile/views.py"
+			],
+			[
+				"unit_de",
+				"templates/restaurant/unit_detail.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 307.0,
+	"status_bar_visible": true
+}
