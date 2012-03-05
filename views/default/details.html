@@ -7,7 +7,7 @@
 
 <div id="audio">
 <audio controls="controls" loop="loop">
-    <source src="{{=URL('download', args=sound.file)}}" type="audio/ogg" />    
+    <source src="{{=URL('download', args=sound.file)}}" type="{{=sound.mime_type}}" />    
     {{=T('Your browser does not support the audio element.')}}
 </audio>
 </div>

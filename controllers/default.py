@@ -15,13 +15,13 @@ def index():
     return locals()
 
 def search():
-    form = SQLFORM.factory(Field('query', default=T('Search')), _action=URL('search'))
-    query = db.sounds
-    if form.process().accepted and form.vars.query:
-        values = form.vars.query.split(' ')        
-        query = db.sounds.title.contains(values, False)
-        query |= db.sounds.description.contains(values, False)            
-    sounds = db(query).select()
+    form = SQLFORM.factory(Field('query', default=T('Search')))    
+    sounds = None
+    if form.process(message_onsuccess="").accepted and form.vars.query:
+        values = form.vars.query        
+        sounds = db(db.sounds).select().find(lambda s: values.lower() in s.title.lower() or values in s.description)
+    else:
+        sounds = db(db.sounds).select()
     return response.render('default/index.html', locals())
 
 @auth.requires_login()
