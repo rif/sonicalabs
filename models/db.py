@@ -35,6 +35,11 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 ## create all tables needed by auth if not custom tables
 auth.define_tables()
 
+if request.env.web2py_runtime_gae:            # if running on Google App Engine
+    from gluon.contrib.login_methods.gae_google_account import GaeGoogleAccount
+    auth.settings.login_form = GaeGoogleAccount()    
+    auth.settings.actions_disabled.append('profile')
+
 ## configure email
 mail=auth.settings.mailer
 mail.settings.server = 'logging' or 'smtp.gmail.com:587'
@@ -52,10 +57,13 @@ from gluon.contrib.login_methods.rpx_account import use_janrain
 use_janrain(auth,filename='private/janrain.key')
 
 db.define_table("sounds",
-     Field('title', required=True),
-     Field('description', 'text'),
-     Field('data', 'blob'),
-     Field('file', 'upload', uploadfield='data'),
+    Field('title', required=True),
+    Field('description', 'text'),
+    Field('data', 'blob'),
+    Field('file', 'upload', uploadfield='data'),
+    Field('play_count', 'integer'),
+    auth.signature,
+    format='%(title)s'
 )
 
 a0,a1 = request.args(0), request.args(1)

@@ -15,7 +15,18 @@ def index():
 
 @auth.requires_login()
 def upload():
-     return dict(form=crud.update(db.sounds, a0))
+    return dict(form=crud.update(db.sounds, a0))
+
+def details():
+    sound = db.sounds(a0)
+    if not sound:
+        raise HTTP(404)
+    user = db.auth_user(sound.created_by)
+    if not user:
+        user = T("Annonimous")
+    else:
+        user = user.first_name + " " + user.last_name
+    return locals()
 
 def user():
     return dict(form=auth())

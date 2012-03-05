@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+
+
+<h3>{{=sound.title}}</h3>
+{{=T('by')}} <span id="author">{{=user}}</span>
+<p>{{=sound.description}}</p>
+
+<div id="audio">
+<audio controls="controls" loop="loop">
+    <source src="{{=URL('download', args=sound.file)}}" type="audio/ogg" />    
+    {{=T('Your browser does not support the audio element.')}}
+</audio>
+</div>
+<a href="{{=URL('index')}}">{{=T('Back')}}</a>
