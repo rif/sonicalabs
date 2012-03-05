@@ -61,7 +61,7 @@ db.define_table("sounds",
     Field('description', 'text'),
     Field('data', 'blob'),
     Field('file', 'upload', uploadfield='data'),
-    Field('play_count', 'integer'),
+    Field('play_count', 'integer', readable=False, writable=False, default=0),
     auth.signature,
     format='%(title)s'
 )
