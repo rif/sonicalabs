@@ -20,6 +20,10 @@ def index():
     return locals()
 
 @auth.requires_login()
+def record():
+    return locals()
+
+@auth.requires_login()
 def upload():
     return dict(form=crud.update(db.sounds, a0, message=T('Upload complete!')))
 
