@@ -38,7 +38,7 @@ auth.define_tables()
 if request.env.web2py_runtime_gae:            # if running on Google App Engine
     from gluon.contrib.login_methods.gae_google_account import GaeGoogleAccount
     auth.settings.login_form = GaeGoogleAccount()    
-    auth.settings.actions_disabled.append('profile')
+    #auth.settings.actions_disabled.append('profile')
 
 ## configure email
 mail=auth.settings.mailer
@@ -68,8 +68,8 @@ db.define_table("sounds",
     Field('data', 'blob'),
     Field('file', 'upload', uploadfield='data', comment=T('1Mb file limit')),
     Field('language', 'list:string', requires=IS_IN_SET(('Romanian','English','German'))),
-    Field('price', 'float'),
-    Field('length', 'float'),
+    Field('price', 'double', default=0.0, comment='$USD'),
+    Field('length', 'double', writable=False, readable=False),
     Field('play_count', 'integer', readable=False, writable=False, default=0),    
     auth.signature,
     format='%(title)s'

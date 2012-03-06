@@ -21,7 +21,16 @@ def index():
 
 @auth.requires_login()
 def upload():
-    return dict(form=crud.update(db.sounds, a0))
+    return dict(form=crud.update(db.sounds, a0, message=T('Upload complete!')))
+
+@auth.requires_login()
+def delete():
+    return dict(form=crud.delete(db.sounds, a0, next=URL('my_uploads'), message=T('Sound deleted!')))
+
+@auth.requires_login()
+def my_uploads():
+    sounds = db(db.sounds.created_by==auth.user.id).select()
+    return locals()
 
 def details():
     sound = db.sounds(a0)

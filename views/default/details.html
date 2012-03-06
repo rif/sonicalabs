@@ -2,8 +2,8 @@
 
 
 <h3>{{=sound.title}}</h3>
-{{=T('by')}} <span id="author">{{=sound.username}}</span>
-<p>{{=sound.description}}</p>
+<div class="info">{{=T('Added on ')}}{{=sound.created_on.strftime("%c")}} {{=T('by')}} {{=sound.username}}</div>
+<div class="description>{{=sound.description}}</div>
 
 <div id="audio">
 <audio controls="controls" loop="loop">

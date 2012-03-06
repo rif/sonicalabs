@@ -11,7 +11,7 @@
 {{ for s in sounds:}}
 <div class="sound">
   <div class="title"><a href="{{=URL('download', args=s.file)}}" type="{{=s.mime_type}}"></a><a href="{{=URL('details', args=s.id)}}">{{=s.title}}</a></div>
-  <div class="info">{{=T('Added on ')}}{{=s.created_on}} {{=T('by')}} {{=s.username}}</div>
+  <div class="info">{{=T('Added on ')}}{{=s.created_on.strftime("%c")}} {{=T('by')}} {{=s.username}}</div>
   <div class="description">{{=s.description}}</div>  
 </div>
 {{pass}}
@@ -21,7 +21,7 @@
      _style='margin-top: 1em;')}}
 <h6>{{=T("Don't know what to do?")}}</h6>
 <ul>
-  <li>{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+  <li>{{=A(T("My uploads"), _href=URL('my_uploads'))}}</li>
   <li><a href="http://web2py.com">web2py.com</a></li>
   <li><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
 </ul>
