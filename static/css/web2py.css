@@ -349,3 +349,17 @@ color: #222;
 }
 .ie9 #query_panel {padding-bottom:2px;}
 
+/* my stuff */
+div.sound {
+    margin-bottom: 10px;
+}
+
+div.sound>div.title a{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+div.sound>div.info {
+    font-size: .8em;
+    color: gray;
+}

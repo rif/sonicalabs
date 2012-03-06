@@ -9,12 +9,7 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-def index(): 
-    sounds = db(db.sounds).select()
-    form = SQLFORM.factory(Field('query', default=T('Search')), _action=URL('search'))        
-    return locals()
-
-def search():
+def index():
     form = SQLFORM.factory(Field('query', default=T('Search')))    
     sounds = None
     if form.process(message_onsuccess="").accepted and form.vars.query:
@@ -22,7 +17,7 @@ def search():
         sounds = db(db.sounds).select().find(lambda s: values.lower() in s.title.lower() or values in s.description)
     else:
         sounds = db(db.sounds).select()
-    return response.render('default/index.html', locals())
+    return locals()
 
 @auth.requires_login()
 def upload():
@@ -31,12 +26,7 @@ def upload():
 def details():
     sound = db.sounds(a0)
     if not sound:
-        raise HTTP(404)
-    user = db.auth_user(sound.created_by)
-    if not user:
-        user = T("Anonymous")
-    else:
-        user = user.first_name + " " + user.last_name
+        raise HTTP(404)    
     return locals()
 
 def user():
