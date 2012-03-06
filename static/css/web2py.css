@@ -363,3 +363,7 @@ div.sound>div.info {
     font-size: .8em;
     color: gray;
 }
+
+div.sound>div.actions {
+    float: right;
+}
