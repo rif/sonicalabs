@@ -411,7 +411,7 @@
 			"file": "views/default/index.html",
 			"settings":
 			{
-				"buffer_size": 1095,
+				"buffer_size": 1116,
 				"line_ending": "Unix"
 			}
 		},
@@ -419,7 +419,7 @@
 			"file": "models/db.py",
 			"settings":
 			{
-				"buffer_size": 3464,
+				"buffer_size": 3474,
 				"line_ending": "Unix"
 			}
 		},
@@ -958,8 +958,8 @@
 						"selection":
 						[
 							[
-								1580,
-								1580
+								1507,
+								1507
 							]
 						],
 						"settings":
@@ -979,15 +979,15 @@
 					"file": "views/default/index.html",
 					"settings":
 					{
-						"buffer_size": 1095,
+						"buffer_size": 1116,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								948,
-								948
+								407,
+								407
 							]
 						],
 						"settings":
@@ -1007,15 +1007,15 @@
 					"file": "models/db.py",
 					"settings":
 					{
-						"buffer_size": 3464,
+						"buffer_size": 3474,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1808,
-								1808
+								2906,
+								2906
 							]
 						],
 						"settings":
@@ -1025,7 +1025,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1052,7 +1052,7 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 66.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},

@@ -10,7 +10,7 @@
 {{pass}}
 {{ for s in sounds:}}
 <div class="sound">
-  <div class="title"><a href="{{=URL('download', args=s.file)}}" type="{{=s.mime_type}}"></a><a href="{{=URL('details', args=s.id)}}">{{=s.title}}</a></div>
+  <div class="title"><a href="{{=URL('download', args=s.file)}}" title="{{=s.title}}" type="{{=s.mime_type}}"></a><a href="{{=URL('details', args=s.id)}}">{{=s.title}}</a></div>
   <div class="info">{{=T('Added on ')}}{{=s.created_on.strftime("%c")}} {{=T('by')}} {{=s.username}}</div>
   <div class="description">{{=s.description}}</div>  
 </div>

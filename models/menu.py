@@ -35,7 +35,7 @@ def _():
     ctr = request.controller
     # useful links to internal and external resources
     response.menu+=[
-        (SPAN('Actions',_style='color:yellow'),False, None, [
+        (SPAN('Explore',_style='color:yellow'),False, None, [
                 (T('Upload a file'),False,URL('default','upload')),
                 (T('Record a sound'),False,URL('default','record')),
                 (T('My uploads'),False,URL('default','my_uploads')),
