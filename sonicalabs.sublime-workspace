@@ -395,7 +395,7 @@
 			"file": "views/layout.html",
 			"settings":
 			{
-				"buffer_size": 7210,
+				"buffer_size": 7257,
 				"line_ending": "Unix"
 			}
 		},
@@ -403,7 +403,7 @@
 			"file": "models/menu.py",
 			"settings":
 			{
-				"buffer_size": 2805,
+				"buffer_size": 1788,
 				"line_ending": "Unix"
 			}
 		},
@@ -411,7 +411,7 @@
 			"file": "views/default/index.html",
 			"settings":
 			{
-				"buffer_size": 1151,
+				"buffer_size": 1095,
 				"line_ending": "Unix"
 			}
 		},
@@ -419,7 +419,7 @@
 			"file": "models/db.py",
 			"settings":
 			{
-				"buffer_size": 2971,
+				"buffer_size": 3464,
 				"line_ending": "Unix"
 			}
 		},
@@ -427,15 +427,32 @@
 			"file": "controllers/default.py",
 			"settings":
 			{
-				"buffer_size": 1376,
+				"buffer_size": 1635,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/default/my_uploads.html",
+			"settings":
+			{
+				"buffer_size": 793,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/default/record.html",
+			"settings":
+			{
+				"buffer_size": 446,
+				"line_ending": "Unix",
+				"name": "<iframe src=\"http://vocaroo.com/?minimal\" width=\"5"
 			}
 		},
 		{
 			"file": "views/default/details.html",
 			"settings":
 			{
-				"buffer_size": 405,
+				"buffer_size": 493,
 				"line_ending": "Unix"
 			}
 		},
@@ -443,7 +460,7 @@
 			"file": "views/default/upload.html",
 			"settings":
 			{
-				"buffer_size": 106,
+				"buffer_size": 282,
 				"line_ending": "Unix"
 			}
 		},
@@ -451,7 +468,7 @@
 			"file": "static/css/web2py.css",
 			"settings":
 			{
-				"buffer_size": 10325,
+				"buffer_size": 10459,
 				"line_ending": "Unix"
 			}
 		}
@@ -870,7 +887,7 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -906,15 +923,15 @@
 					"file": "views/layout.html",
 					"settings":
 					{
-						"buffer_size": 7210,
+						"buffer_size": 7257,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7193,
-								7193
+								4267,
+								4276
 							]
 						],
 						"settings":
@@ -924,7 +941,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1736.0,
+						"translation.y": 1001.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -934,15 +951,15 @@
 					"file": "models/menu.py",
 					"settings":
 					{
-						"buffer_size": 2805,
+						"buffer_size": 1788,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								369,
-								369
+								1580,
+								1580
 							]
 						],
 						"settings":
@@ -962,15 +979,15 @@
 					"file": "views/default/index.html",
 					"settings":
 					{
-						"buffer_size": 1151,
+						"buffer_size": 1095,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1139,
-								1139
+								948,
+								948
 							]
 						],
 						"settings":
@@ -990,43 +1007,15 @@
 					"file": "models/db.py",
 					"settings":
 					{
-						"buffer_size": 2971,
+						"buffer_size": 3464,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2878,
-								2878
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "controllers/default.py",
-					"settings":
-					{
-						"buffer_size": 1376,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								930,
-								930
+								1808,
+								1808
 							]
 						],
 						"settings":
@@ -1042,19 +1031,47 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "views/default/details.html",
+					"buffer": 5,
+					"file": "controllers/default.py",
 					"settings":
 					{
-						"buffer_size": 405,
+						"buffer_size": 1635,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								251,
-								271
+								907,
+								907
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 66.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "views/default/my_uploads.html",
+					"settings":
+					{
+						"buffer_size": 793,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								793,
+								793
 							]
 						],
 						"settings":
@@ -1069,18 +1086,45 @@
 				},
 				{
 					"buffer": 7,
-					"file": "views/default/upload.html",
+					"file": "views/default/record.html",
 					"settings":
 					{
-						"buffer_size": 106,
+						"buffer_size": 446,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								106,
-								106
+								444,
+								444
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<iframe src=\"http://vocaroo.com/?minimal\" width=\"5",
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "views/default/details.html",
+					"settings":
+					{
+						"buffer_size": 493,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								0
 							]
 						],
 						"settings":
@@ -1094,19 +1138,45 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "static/css/web2py.css",
+					"buffer": 9,
+					"file": "views/default/upload.html",
 					"settings":
 					{
-						"buffer_size": 10325,
+						"buffer_size": 282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10192,
-								10192
+								282,
+								282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "static/css/web2py.css",
+					"settings":
+					{
+						"buffer_size": 10459,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10238,
+								10238
 							]
 						],
 						"settings":
@@ -1116,7 +1186,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4725.0,
+						"translation.y": 5036.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1165,6 +1235,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"we",
+				"static/css/web2py.css"
+			],
 			[
 				"db",
 				"models/db.py"

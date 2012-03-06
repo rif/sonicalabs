@@ -14,7 +14,7 @@ def index():
     sounds = None
     if form.process(message_onsuccess="").accepted and form.vars.query:
         values = form.vars.query        
-        sounds = db(db.sounds).select().find(lambda s: values.lower() in s.title.lower() or values in s.description)
+        sounds = db(db.sounds).select().find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
     else:
         sounds = db(db.sounds).select()
     return locals()

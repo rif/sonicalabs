@@ -35,25 +35,10 @@ def _():
     ctr = request.controller
     # useful links to internal and external resources
     response.menu+=[
-        (SPAN('web2py',_style='color:yellow'),False, None, [
-                (T('My Sites'),False,URL('admin','default','site')),
-                (T('This App'),False,URL('admin','default','design/%s' % app), [
-                        (T('Controller'),False,
-                         URL('admin','default','edit/%s/controllers/%s.py' % (app,ctr))),
-                        (T('View'),False,
-                         URL('admin','default','edit/%s/views/%s' % (app,response.view))),
-                        (T('Layout'),False,
-                         URL('admin','default','edit/%s/views/layout.html' % app)),
-                        (T('Stylesheet'),False,
-                         URL('admin','default','edit/%s/static/css/web2py.css' % app)),
-                        (T('DB Model'),False,
-                         URL('admin','default','edit/%s/models/db.py' % app)),
-                        (T('Menu Model'),False,
-                         URL('admin','default','edit/%s/models/menu.py' % app)),
-                        (T('Database'),False, URL(app,'appadmin','index')),
-                        (T('Errors'),False, URL('admin','default','errors/' + app)),
-                        (T('About'),False, URL('admin','default','about/' + app)),
-                        ])              
+        (SPAN('Actions',_style='color:yellow'),False, None, [
+                (T('Upload a file'),False,URL('default','upload')),
+                (T('Record a sound'),False,URL('default','record')),
+                (T('My uploads'),False,URL('default','my_uploads')),
                 ]
          )]
 _()
