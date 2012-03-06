@@ -8,29 +8,13 @@
 {{ if form.vars.query:}}
 {{=T('Searching for:')}} {{=form.vars.query}}
 {{pass}}
-<table>
-<thead>
-  <tr>
-    <th>{{=T('Title')}}</th>
-    <th>{{=T('Description')}}</th>
-    <th>{{=T('Play')}}</th>
-  </tr>
-</thead>
-<tbody>
 {{ for s in sounds:}}
-<tr>
-<td><a href="{{=URL('details', args=s.id)}}">{{=s.title}}</a></td>
-<td>{{=s.description}}</td>
-<td>
-  <audio controls="controls" loop="loop">
-    <source src="{{=URL('download', args=s.file)}}" type="{{=s.mime_type}}" />    
-    {{=T('Your browser does not support the audio element.')}}
-  </audio>
-</td>
+<div class="sound">
+  <div class="title"><a href="{{=URL('download', args=s.file)}}" type="{{=s.mime_type}}"></a><a href="{{=URL('details', args=s.id)}}">{{=s.title}}</a></div>
+  <div class="info">{{=T('Added on ')}}{{=s.created_on}} {{=T('by')}} {{=s.username}}</div>
+  <div class="description">{{=s.description}}</div>  
+</div>
 {{pass}}
-</tr>
-</tbody>
-</table>
 
 {{block right_sidebar}}
 {{=A(T("Upload a file"), _href=URL('upload'), _class='button',
@@ -46,5 +30,5 @@
 <script type="text/javascript">        
   $("#no_table_query").one("focus", function() {
       $(this).val("");
-  });
+  });  
 </script>

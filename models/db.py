@@ -56,15 +56,25 @@ auth.settings.reset_password_requires_verification = True
 from gluon.contrib.login_methods.rpx_account import use_janrain
 use_janrain(auth,filename='private/janrain.key')
 
+def get_username(row):
+    u = db.auth_user(row.sounds.created_by)
+    return u.first_name + ' ' + u.last_name if u else T("Anonymous")
+
+
 db.define_table("sounds",
     Field('title', required=True),
     Field('description', 'text'),
+    Field('keywords', comment=T('Comma separated key words')),
     Field('data', 'blob'),
-    Field('file', 'upload', uploadfield='data'),
+    Field('file', 'upload', uploadfield='data', comment=T('1Mb file limit')),
+    Field('language', 'list:string', requires=IS_IN_SET(('Romanian','English','German'))),
+    Field('price', 'float'),
+    Field('length', 'float'),
     Field('play_count', 'integer', readable=False, writable=False, default=0),    
     auth.signature,
     format='%(title)s'
 )
 db.sounds.mime_type = Field.Virtual(lambda row: 'audio/ogg' if row.sounds.file.rsplit('.', 1)[-1] == 'ogg' else 'audio/mpeg')
+db.sounds.username = Field.Virtual(get_username)
 
 a0,a1 = request.args(0), request.args(1)
