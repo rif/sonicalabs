@@ -21,7 +21,7 @@
 {{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
 <h6>{{=T("Explore")}}</h6>
 <ul>
-  <li>{{=A(T("My uploads"), _href=URL('my_uploads'))}}</li>  
+  <li>{{=A(T("My uploads"), _href=URL('my_uploads', user_signature=True))}}</li>  
 </ul>
 {{end}}
 
