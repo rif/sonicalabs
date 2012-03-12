@@ -7,27 +7,28 @@
 	<div class="description">{{=detail_sound.description}}</div>
 </div>
 
-<h3>{{=T('By the same user')}}</h3>
-<hr/>
-{{ for i, sound in enumerate(sounds):}}
-	{{if i==items_per_page: break}}
-	{{if sound.id != detail_sound.id:}}
-	<div class="sound">
-	  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
-	  <div class="info">{{=T('Added on ')}}{{=sound.created_on}} {{=sound.play_count}} {{=T('views')}}</div>
-	  <div class="description">{{=sound.description}}</div> 	  
-	</div>
+{{if len(sounds) > 0:}}
+	<h3>{{=T('By the same user')}}</h3>
+	<hr/>
+	{{ for i, sound in enumerate(sounds):}}
+		{{if i==items_per_page: break}}
+		{{if sound.id != detail_sound.id:}}
+		<div class="sound">
+		  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
+		  <div class="info">{{=T('Added on ')}}{{=sound.created_on}} {{=sound.play_count}} {{=T('views')}}</div>
+		  <div class="description">{{=sound.description}}</div> 	  
+		</div>
+		{{pass}}
+	{{pass}}
+
+	{{if page:}}
+	<a href="{{=URL(vars={'page':page-1})}}">{{=T('previous')}}</a>
+	{{pass}}
+
+	{{if len(sounds)>items_per_page:}}
+	<a href="{{=URL(vars={'page':page+1})}}">{{=T('next')}}</a>
 	{{pass}}
 {{pass}}
-
-{{if page:}}
-<a href="{{=URL(vars={'page':page-1})}}">{{=T('previous')}}</a>
-{{pass}}
-
-{{if len(sounds)>items_per_page:}}
-<a href="{{=URL(vars={'page':page+1})}}">{{=T('next')}}</a>
-{{pass}}
-
 {{block right_sidebar}}
 {{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
 {{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"cre",
+				"created_by"
+			],
+			[
+				"deta",
+				"detail_sound"
+			],
+			[
 				"blob_",
 				"blob_info"
 			],
@@ -419,7 +427,7 @@
 			"file": "views/default/index.html",
 			"settings":
 			{
-				"buffer_size": 1187,
+				"buffer_size": 1557,
 				"line_ending": "Unix"
 			}
 		},
@@ -427,7 +435,7 @@
 			"file": "models/db.py",
 			"settings":
 			{
-				"buffer_size": 3530,
+				"buffer_size": 3634,
 				"line_ending": "Unix"
 			}
 		},
@@ -435,7 +443,7 @@
 			"file": "controllers/default.py",
 			"settings":
 			{
-				"buffer_size": 3182,
+				"buffer_size": 4412,
 				"line_ending": "Unix"
 			}
 		},
@@ -443,7 +451,7 @@
 			"file": "views/default/my_uploads.html",
 			"settings":
 			{
-				"buffer_size": 832,
+				"buffer_size": 1154,
 				"line_ending": "Unix"
 			}
 		},
@@ -451,7 +459,7 @@
 			"file": "views/default/record.html",
 			"settings":
 			{
-				"buffer_size": 446,
+				"buffer_size": 452,
 				"line_ending": "Unix",
 				"name": "<iframe src=\"http://vocaroo.com/?minimal\" width=\"5"
 			}
@@ -460,7 +468,7 @@
 			"file": "views/default/details.html",
 			"settings":
 			{
-				"buffer_size": 826,
+				"buffer_size": 1782,
 				"line_ending": "Unix"
 			}
 		},
@@ -473,10 +481,18 @@
 			}
 		},
 		{
+			"file": "views/default/most_popular.html",
+			"settings":
+			{
+				"buffer_size": 522,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "static/css/web2py.css",
 			"settings":
 			{
-				"buffer_size": 10457,
+				"buffer_size": 10606,
 				"line_ending": "Unix"
 			}
 		}
@@ -565,6 +581,10 @@
 	},
 	"file_history":
 	[
+		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/views/default/most_popular.html",
+		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/private/janrain.key",
+		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/private/auth.key",
+		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/static/css/web2py.css",
 		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/controllers/gae.py",
 		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/static/css/skeleton.css",
 		"/home/rif/Documents/webframeworks/web2py/applications/sonicalabs/ABOUT",
@@ -688,11 +708,7 @@
 		"/home/rif/Documents/webframeworks/bucatar/templates/order/confirmation_email.html",
 		"/home/rif/Documents/webframeworks/bucatar/order/forms.py",
 		"/home/rif/Documents/webframeworks/bucatar/templates/order/send_confirmation.html",
-		"/home/rif/Documents/webframeworks/bucatar/bonus/views.py",
-		"/home/rif/Documents/webframeworks/bucatar/templates/bonus/history.html",
-		"/home/rif/Documents/webframeworks/bucatar/templates/order/restaurant_order_list.html",
-		"/home/rif/Documents/webframeworks/bucatar/order/admin.py",
-		"/home/rif/Documents/webframeworks/bucatar/order/tests.py"
+		"/home/rif/Documents/webframeworks/bucatar/bonus/views.py"
 	],
 	"find":
 	{
@@ -896,7 +912,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -950,7 +966,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 41.0,
+						"translation.y": 26.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -988,15 +1004,15 @@
 					"file": "views/default/index.html",
 					"settings":
 					{
-						"buffer_size": 1187,
+						"buffer_size": 1557,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								355,
-								395
+								1242,
+								1242
 							]
 						],
 						"settings":
@@ -1016,15 +1032,15 @@
 					"file": "models/db.py",
 					"settings":
 					{
-						"buffer_size": 3530,
+						"buffer_size": 3634,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3024,
-								3024
+								3191,
+								3201
 							]
 						],
 						"settings":
@@ -1034,7 +1050,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1044,15 +1060,15 @@
 					"file": "controllers/default.py",
 					"settings":
 					{
-						"buffer_size": 3182,
+						"buffer_size": 4412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1395,
-								1395
+								3747,
+								3747
 							]
 						],
 						"settings":
@@ -1062,7 +1078,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 765.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1072,15 +1088,15 @@
 					"file": "views/default/my_uploads.html",
 					"settings":
 					{
-						"buffer_size": 832,
+						"buffer_size": 1154,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								585,
-								585
+								450,
+								450
 							]
 						],
 						"settings":
@@ -1098,15 +1114,15 @@
 					"file": "views/default/record.html",
 					"settings":
 					{
-						"buffer_size": 446,
+						"buffer_size": 452,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								57,
-								0
+								396,
+								396
 							]
 						],
 						"settings":
@@ -1125,15 +1141,15 @@
 					"file": "views/default/details.html",
 					"settings":
 					{
-						"buffer_size": 826,
+						"buffer_size": 1782,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								697,
-								697
+								575,
+								575
 							]
 						],
 						"settings":
@@ -1174,18 +1190,44 @@
 				},
 				{
 					"buffer": 10,
-					"file": "static/css/web2py.css",
+					"file": "views/default/most_popular.html",
 					"settings":
 					{
-						"buffer_size": 10457,
+						"buffer_size": 522,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10301,
-								10301
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "static/css/web2py.css",
+					"settings":
+					{
+						"buffer_size": 10606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10440,
+								10440
 							]
 						],
 						"settings":
@@ -1195,7 +1237,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5036.0,
+						"translation.y": 4832.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1234,6 +1276,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
 	"replace":
 	{
 		"height": 62.0
