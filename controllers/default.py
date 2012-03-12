@@ -62,6 +62,7 @@ def delete_sound():
     return locals()
 
 @auth.requires_login()
+@auth.requires_signature()
 def my_uploads():
     sounds = db(user_sounds).select(orderby=~db.sounds.created_on)
     return locals()
