@@ -42,11 +42,17 @@ def blobstore_upload(form):
         form.vars.file = None        
 
 @auth.requires_login()
-def upload():
+def create_sound():
+    return dict(form=crud.create(db.sounds, onvalidation=blobstore_upload, next=URL('my_uploads'), message=T('Upload complete!')))
+
+@auth.requires_login()
+@auth.requires_signature()
+def update_sound():
     return dict(form=crud.update(db.sounds, a0, onvalidation=blobstore_upload, next=URL('my_uploads'), message=T('Upload complete!')))
 
 @auth.requires_login()
-def delete():
+@auth.requires_signature()
+def delete_sound():
     from google.appengine.ext import blobstore
     sound = db.sounds(a0)
     if not sound:
@@ -61,10 +67,10 @@ def my_uploads():
     return locals()
 
 def details():
-    detail_sound = db.sounds(a0)
-    sounds = db(active_sounds & user_sounds).select(orderby=~db.sounds.created_on)
+    detail_sound = db.sounds(a0)    
     if not detail_sound:
         raise HTTP(404)    
+    sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on)
     return locals()
 
 def user():
