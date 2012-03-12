@@ -365,6 +365,13 @@ div.sound>div.title{
     font-size: 1.5em;
     font-weight: bold;
 }
+#most_popular div.sound>div.title a, #most_popular div.sound>div.title{
+    font-size: 1.1em;
+}
+
+#most_popular div.sound {
+  margin-bottom: 0px;  
+}
 
 div.sound>div.info {
     font-size: .8em;

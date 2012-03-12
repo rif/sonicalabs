@@ -3,7 +3,7 @@
 
 <div class="sound">
 	<div class="title"><a href="{{=URL('download_blob', args=detail_sound.id)}}" title="{{=detail_sound.title}}" type="{{=detail_sound.mime_type}}"></a> {{=detail_sound.title}}</h3></div>
-	<div class="info">{{=T('Added on ')}}{{if detail_sound.created_on:}}{{=detail_sound.created_on.strftime("%c")}}{{pass}} {{=T('by')}} {{=detail_sound.username}} {{=T('play count')}}: {{=detail_sound.play_count}}</div>
+	<div class="info">{{=T('Added on ')}}{{if detail_sound.created_on:}}{{=detail_sound.created_on.strftime("%c")}}{{pass}} {{=T('by')}} {{=detail_sound.username}} {{=detail_sound.play_count}} {{=T('views')}}</div>
 	<div class="description">{{=detail_sound.description}}</div>
 </div>
 
@@ -14,7 +14,7 @@
 	{{if sound.id != detail_sound.id:}}
 	<div class="sound">
 	  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
-	  <div class="info">{{=T('Added on ')}}{{=sound.created_on}} {{=T('play count')}}: {{=sound.play_count}}</div>
+	  <div class="info">{{=T('Added on ')}}{{=sound.created_on}} {{=sound.play_count}} {{=T('views')}}</div>
 	  <div class="description">{{=sound.description}}</div> 	  
 	</div>
 	{{pass}}
