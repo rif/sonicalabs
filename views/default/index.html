@@ -8,12 +8,21 @@
 {{ if form.vars.query:}}
 {{=T('Searching for:')}} {{=form.vars.query}}
 {{pass}}
-{{ for sound in sounds:}}
+{{ for i, sound in enumerate(sounds):}}
+{{if i==items_per_page: break}}
 <div class="sound">
   <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" title="{{=sound.title}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
   <div class="info">{{=T('Added on ')}}{{if sound.created_on:}}{{=sound.created_on.strftime("%c")}}{{pass}} {{=T('by')}} {{=sound.username}}</div>
   <div class="description">{{=sound.description}}</div>  
 </div>
+{{pass}}
+
+{{if page:}}
+<a href="{{=URL(args=[page-1])}}">{{=T('<< previous')}}</a>
+{{pass}}
+
+{{if len(sounds)>items_per_page:}}
+<a href="{{=URL(args=[page+1])}}">{{=T('next >>')}}</a>
 {{pass}}
 
 {{block right_sidebar}}

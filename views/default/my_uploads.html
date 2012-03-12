@@ -1,7 +1,8 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,True}}
 {{extend 'layout.html'}}
 
-{{ for sound in sounds:}}
+{{ for i, sound in enumerate(sounds):}}
+{{if i==items_per_page: break}}
 <div class="sound">
   <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
   <div class="info">{{=T('Added on ')}}{{=sound.created_on}}</div>
@@ -11,6 +12,14 @@
   	<a href="{{=URL('update_sound', args=sound.id, user_signature=True)}}" class="button">{{=T('Edit')}}</a>
   </div> 
 </div>
+{{pass}}
+
+{{if page:}}
+<a href="{{=URL(args=[page-1])}}">{{=T('<< previous')}}</a>
+{{pass}}
+
+{{if len(sounds)>items_per_page:}}
+<a href="{{=URL(args=[page+1])}}">{{=T('next >>')}}</a>
 {{pass}}
 
 {{block right_sidebar}}

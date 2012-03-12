@@ -10,13 +10,18 @@
 #########################################################################
 
 def index():
+    if len(request.args): page=int(a0)
+    else: page=0
+    items_per_page=20
+    limitby=(page*items_per_page,(page+1)*items_per_page+1)
+
     form = SQLFORM.factory(Field('query', default=T('Search')))    
     sounds = None
     if form.process(message_onsuccess="").accepted and form.vars.query:
         values = form.vars.query        
-        sounds = db(active_sounds).select(orderby=~db.sounds.created_on).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
+        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=limitby).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
     else:
-        sounds = db(active_sounds).select(orderby=~db.sounds.created_on)
+        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=limitby)
     return locals()
 
 @auth.requires_login()
@@ -64,14 +69,23 @@ def delete_sound():
 @auth.requires_login()
 @auth.requires_signature()
 def my_uploads():
-    sounds = db(user_sounds).select(orderby=~db.sounds.created_on)
+    if len(request.args): page=int(a0)
+    else: page=0
+    items_per_page=20
+    limitby=(page*items_per_page,(page+1)*items_per_page+1)
+
+    sounds = db(user_sounds).select(orderby=~db.sounds.created_on, limitby=limitby)
     return locals()
 
 def details():
     detail_sound = db.sounds(a0)    
     if not detail_sound:
-        raise HTTP(404)    
-    sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on)
+        raise HTTP(404) 
+    if 'len' in request.vars: page=int(request.vars.page)
+    else: page=0
+    items_per_page=20
+    limitby=(page*items_per_page,(page+1)*items_per_page+1)
+    sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on, limitby=limitby)
     return locals()
 
 def user():

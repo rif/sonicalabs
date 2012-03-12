@@ -9,7 +9,8 @@
 
 <h3>{{=T('By the same user')}}</h3>
 <hr/>
-{{ for sound in sounds:}}
+{{ for i, sound in enumerate(sounds):}}
+	{{if i==items_per_page: break}}
 	{{if sound.id != detail_sound.id:}}
 	<div class="sound">
 	  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
@@ -17,6 +18,14 @@
 	  <div class="description">{{=sound.description}}</div> 	  
 	</div>
 	{{pass}}
+{{pass}}
+
+{{if page:}}
+<a href="{{=URL(vars={'page':page-1})}}">{{=T('previous')}}</a>
+{{pass}}
+
+{{if len(sounds)>items_per_page:}}
+<a href="{{=URL(vars={'page':page+1})}}">{{=T('next')}}</a>
 {{pass}}
 
 {{block right_sidebar}}
@@ -28,4 +37,6 @@
 </ul>
 {{end}}
 
-<a href="{{=URL('index')}}">{{=T('Back')}}</a>
+<div class="back">
+<a class="button" href="{{=URL('index')}}">{{=T('Back')}}</a>
+</div>
