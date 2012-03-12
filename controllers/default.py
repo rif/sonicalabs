@@ -80,12 +80,25 @@ def my_uploads():
 def details():
     detail_sound = db.sounds(a0)    
     if not detail_sound:
-        raise HTTP(404) 
+        raise HTTP(404)    
+    
+    new_count = detail_sound.play_count + 1
+    detail_sound.update_record(play_count=new_count)
+
     if 'len' in request.vars: page=int(request.vars.page)
     else: page=0
     items_per_page=20
     limitby=(page*items_per_page,(page+1)*items_per_page+1)
     sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on, limitby=limitby)
+    return locals()
+
+def most_popular():
+    if len(request.args): page=int(a0)
+    else: page=0
+    items_per_page=10
+    limitby=(page*items_per_page,(page+1)*items_per_page+1)
+
+    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=limitby)
     return locals()
 
 def user():
