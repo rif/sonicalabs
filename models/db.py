@@ -35,11 +35,6 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 ## create all tables needed by auth if not custom tables
 auth.define_tables()
 
-if request.env.web2py_runtime_gae:            # if running on Google App Engine
-    from gluon.contrib.login_methods.gae_google_account import GaeGoogleAccount
-    auth.settings.login_form = GaeGoogleAccount()    
-    #auth.settings.actions_disabled.append('profile')
-
 ## configure email
 mail=auth.settings.mailer
 mail.settings.server = 'logging' or 'smtp.gmail.com:587'
@@ -55,6 +50,12 @@ auth.settings.reset_password_requires_verification = True
 ## register with janrain.com, write your domain:api_key in private/janrain.key
 from gluon.contrib.login_methods.rpx_account import use_janrain
 use_janrain(auth,filename='private/janrain.key')
+
+# if request.env.web2py_runtime_gae:            # if running on Google App Engine
+#     from gluon.contrib.login_methods.gae_google_account import GaeGoogleAccount
+#     auth.settings.login_form = GaeGoogleAccount()    
+#     #auth.settings.actions_disabled.append('profile')
+
 
 def get_username(row):
     u = db.auth_user(row.sounds.created_by)
