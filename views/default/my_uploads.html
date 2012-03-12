@@ -1,14 +1,14 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,True}}
 {{extend 'layout.html'}}
 
-{{ for s in sounds:}}
+{{ for sound in sounds:}}
 <div class="sound">
-  <div class="title"><a href="{{=URL('download', args=s.file)}}" type="{{=s.mime_type}}"></a><a href="{{=URL('details', args=s.id)}}">{{=s.title}}</a></div>
-  <div class="info">{{=T('Added on ')}}{{=s.created_on}}</div>
-  <div class="description">{{=s.description}}</div> 
+  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
+  <div class="info">{{=T('Added on ')}}{{=sound.created_on}}</div>
+  <div class="description">{{=sound.description}}</div> 
   <div class="actions">
-  	<a href="{{=URL('delete', args=s.id)}}" class="negative button">{{=T('Delete')}}</a>
-  	<a href="{{=URL('upload', args=s.id)}}" class="button">{{=T('Edit')}}</a>
+  	<a href="{{=URL('delete', args=sound.id)}}" class="negative button">{{=T('Delete')}}</a>
+  	<a href="{{=URL('upload', args=sound.id)}}" class="button">{{=T('Edit')}}</a>
   </div> 
 </div>
 {{pass}}

@@ -361,7 +361,7 @@ div.sound {
     margin-bottom: 10px;
 }
 
-div.sound>div.title a{
+div.sound>div.title{
     font-size: 1.5em;
     font-weight: bold;
 }

@@ -65,16 +65,18 @@ db.define_table("sounds",
     Field('title', required=True),
     Field('description', 'text'),
     Field('keywords', comment=T('Comma separated key words')),
-    Field('data', 'blob'),
-    Field('file', 'upload', uploadfield='data', comment=T('MP3 file. 1Mb size limit')),
-    Field('language', 'list:string', requires=IS_IN_SET(('Romanian','English','German'))),
+    Field('blob_key', writable=False, readable=False),
+    Field('file', 'upload', comment=T('MP3 file. 10Mb size limit.')),
+    Field('language', 'list:string', requires=IS_IN_SET((T('Romanian'),T('English'),T('German'))), default=T('English')),
     Field('price', 'double', default=0.0, comment='$USD'),
     Field('length', 'double', writable=False, readable=False),
     Field('play_count', 'integer', readable=False, writable=False, default=0),    
     auth.signature,
     format='%(title)s'
 )
-db.sounds.mime_type = Field.Virtual(lambda row: 'audio/ogg' if row.sounds.file.rsplit('.', 1)[-1] == 'ogg' else 'audio/mpeg')
+db.sounds.mime_type = Field.Virtual(lambda row: 'audio/mpeg') #'audio/ogg' if row.sounds.file.rsplit('.', 1)[-1] == 'ogg' else 'audio/mpeg')
 db.sounds.username = Field.Virtual(get_username)
 
 a0,a1 = request.args(0), request.args(1)
+active_sounds = db.sounds.is_active == True
+user_sounds = db.sounds.created_by == auth.user_id

@@ -1,14 +1,35 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,True}}
 {{extend 'layout.html'}}
 
-
-<h3>{{=sound.title}}</h3>
-<div class="info">{{=T('Added on ')}}{{=sound.created_on.strftime("%c")}} {{=T('by')}} {{=sound.username}}</div>
-<div class="description>{{=sound.description}}</div>
-
-<div id="audio">
-<audio controls="controls" loop="loop">
-    <source src="{{=URL('download', args=sound.file)}}" type="{{=sound.mime_type}}" />    
-    {{=T('Your browser does not support the audio element.')}}
-</audio>
+<div class="sound">
+	<div class="title"><a href="{{=URL('download_blob', args=detail_sound.id)}}" title="{{=detail_sound.title}}" type="{{=detail_sound.mime_type}}"></a> {{=detail_sound.title}}</h3></div>
+	<div class="info">{{=T('Added on ')}}{{if detail_sound.created_on:}}{{=detail_sound.created_on.strftime("%c")}}{{pass}} {{=T('by')}} {{=detail_sound.username}}</div>
+	<div class="description">{{=detail_sound.description}}</div>
 </div>
+
+<h3>{{=T('By the same user')}}</h3>
+<hr/>
+{{ for sound in sounds:}}
+	{{if sound.id != detail_sound.id:}}
+	<div class="sound">
+	  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
+	  <div class="info">{{=T('Added on ')}}{{=sound.created_on}}</div>
+	  <div class="description">{{=sound.description}}</div> 
+	  <div class="actions">
+	  	<a href="{{=URL('delete', args=sound.id)}}" class="negative button">{{=T('Delete')}}</a>
+	  	<a href="{{=URL('upload', args=sound.id)}}" class="button">{{=T('Edit')}}</a>
+	  </div> 
+	</div>
+	{{pass}}
+{{pass}}
+
+{{block right_sidebar}}
+{{=A(T("Upload a file"), _href=URL('upload'), _class='button', _style='margin-top: 1em;')}}
+{{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
+<h6>{{=T("Explore")}}</h6>
+<ul>
+  <li>{{=A(T("My uploads"), _href=URL('my_uploads'))}}</li>  
+</ul>
+{{end}}
+
 <a href="{{=URL('index')}}">{{=T('Back')}}</a>

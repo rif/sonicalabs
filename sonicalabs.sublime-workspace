@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"blob_",
+				"blob_info"
+			],
+			[
+				"blob",
+				"blobstore"
+			],
+			[
 				"siz",
 				"size"
 			],
@@ -411,7 +419,7 @@
 			"file": "views/default/index.html",
 			"settings":
 			{
-				"buffer_size": 1116,
+				"buffer_size": 1187,
 				"line_ending": "Unix"
 			}
 		},
@@ -419,7 +427,7 @@
 			"file": "models/db.py",
 			"settings":
 			{
-				"buffer_size": 3474,
+				"buffer_size": 3530,
 				"line_ending": "Unix"
 			}
 		},
@@ -427,7 +435,7 @@
 			"file": "controllers/default.py",
 			"settings":
 			{
-				"buffer_size": 1635,
+				"buffer_size": 3182,
 				"line_ending": "Unix"
 			}
 		},
@@ -435,7 +443,7 @@
 			"file": "views/default/my_uploads.html",
 			"settings":
 			{
-				"buffer_size": 793,
+				"buffer_size": 832,
 				"line_ending": "Unix"
 			}
 		},
@@ -452,7 +460,7 @@
 			"file": "views/default/details.html",
 			"settings":
 			{
-				"buffer_size": 493,
+				"buffer_size": 826,
 				"line_ending": "Unix"
 			}
 		},
@@ -468,7 +476,7 @@
 			"file": "static/css/web2py.css",
 			"settings":
 			{
-				"buffer_size": 10459,
+				"buffer_size": 10457,
 				"line_ending": "Unix"
 			}
 		}
@@ -702,6 +710,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			")",
+			"s.",
+			"file",
 			")        ",
 			"test.kch",
 			"gob",
@@ -826,10 +837,7 @@
 			"print",
 			"totalno",
 			"comanda",
-			"cart",
-			"*",
-			"geopy",
-			"invite"
+			"cart"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -837,6 +845,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"sound.",
 			"../data/test.kch",
 			"json",
 			"gob",
@@ -887,7 +896,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -941,7 +950,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1001.0,
+						"translation.y": 41.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -979,15 +988,15 @@
 					"file": "views/default/index.html",
 					"settings":
 					{
-						"buffer_size": 1116,
+						"buffer_size": 1187,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								407,
-								407
+								355,
+								395
 							]
 						],
 						"settings":
@@ -1007,15 +1016,15 @@
 					"file": "models/db.py",
 					"settings":
 					{
-						"buffer_size": 3474,
+						"buffer_size": 3530,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2906,
-								2906
+								3024,
+								3024
 							]
 						],
 						"settings":
@@ -1025,7 +1034,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1035,15 +1044,15 @@
 					"file": "controllers/default.py",
 					"settings":
 					{
-						"buffer_size": 1635,
+						"buffer_size": 3182,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								907,
-								907
+								1395,
+								1395
 							]
 						],
 						"settings":
@@ -1063,15 +1072,15 @@
 					"file": "views/default/my_uploads.html",
 					"settings":
 					{
-						"buffer_size": 793,
+						"buffer_size": 832,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								793,
-								793
+								585,
+								585
 							]
 						],
 						"settings":
@@ -1096,8 +1105,8 @@
 						"selection":
 						[
 							[
-								444,
-								444
+								57,
+								0
 							]
 						],
 						"settings":
@@ -1116,15 +1125,15 @@
 					"file": "views/default/details.html",
 					"settings":
 					{
-						"buffer_size": 493,
+						"buffer_size": 826,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								24,
-								0
+								697,
+								697
 							]
 						],
 						"settings":
@@ -1168,15 +1177,15 @@
 					"file": "static/css/web2py.css",
 					"settings":
 					{
-						"buffer_size": 10459,
+						"buffer_size": 10457,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10238,
-								10238
+								10301,
+								10301
 							]
 						],
 						"settings":
@@ -1236,12 +1245,12 @@
 		"selected_items":
 		[
 			[
-				"we",
-				"static/css/web2py.css"
-			],
-			[
 				"db",
 				"models/db.py"
+			],
+			[
+				"we",
+				"static/css/web2py.css"
 			],
 			[
 				"call",
