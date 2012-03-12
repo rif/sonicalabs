@@ -7,13 +7,13 @@
   <div class="info">{{=T('Added on ')}}{{=sound.created_on}}</div>
   <div class="description">{{=sound.description}}</div> 
   <div class="actions">
-  	<a href="{{=URL('delete', args=sound.id)}}" class="negative button">{{=T('Delete')}}</a>
-  	<a href="{{=URL('upload', args=sound.id)}}" class="button">{{=T('Edit')}}</a>
+  	<a href="{{=URL('delete_sound', args=sound.id, user_signature=True)}}" class="negative button">{{=T('Delete')}}</a>
+  	<a href="{{=URL('update_sound', args=sound.id, user_signature=True)}}" class="button">{{=T('Edit')}}</a>
   </div> 
 </div>
 {{pass}}
 
 {{block right_sidebar}}
-{{=A(T("Upload more"), _href=URL('upload'), _class='button',_style='margin-top: 1em;')}}
+{{=A(T("Upload more"), _href=URL('create_sound'), _class='button',_style='margin-top: 1em;')}}
 {{=A(T("Record"), _href=URL('record'), _class='button')}}
 {{end}}

@@ -14,17 +14,13 @@
 	<div class="sound">
 	  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
 	  <div class="info">{{=T('Added on ')}}{{=sound.created_on}}</div>
-	  <div class="description">{{=sound.description}}</div> 
-	  <div class="actions">
-	  	<a href="{{=URL('delete', args=sound.id)}}" class="negative button">{{=T('Delete')}}</a>
-	  	<a href="{{=URL('upload', args=sound.id)}}" class="button">{{=T('Edit')}}</a>
-	  </div> 
+	  <div class="description">{{=sound.description}}</div> 	  
 	</div>
 	{{pass}}
 {{pass}}
 
 {{block right_sidebar}}
-{{=A(T("Upload a file"), _href=URL('upload'), _class='button', _style='margin-top: 1em;')}}
+{{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
 {{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
 <h6>{{=T("Explore")}}</h6>
 <ul>
