@@ -5,7 +5,7 @@
 {{if i==items_per_page: break}}
 <div class="sound">
   <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
-  <div class="info">{{=T('Added on ')}}{{=sound.created_on}} {{=sound.play_count}} {{=T('views')}}</div>
+  <div class="info">{{=T('Added')}} {{=prettydate(sound.created_on)}} {{=sound.play_count}} {{=T('views')}}</div>
   <div class="description">{{=sound.description}}</div> 
   <div class="actions">
   	<a href="{{=URL('delete_sound', args=sound.id, user_signature=True)}}" class="negative button">{{=T('Delete')}}</a>

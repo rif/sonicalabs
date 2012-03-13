@@ -48,12 +48,14 @@ def blobstore_upload(form):
 
 @auth.requires_login()
 def create_sound():
-    return dict(form=crud.create(db.sounds, onvalidation=blobstore_upload, next=URL('my_uploads'), message=T('Upload complete!')))
+    form=crud.create(db.sounds, onvalidation=blobstore_upload, next=URL('my_uploads'), message=T('Upload complete!'))
+    return response.render('default/upload.html', locals())
 
 @auth.requires_login()
 @auth.requires_signature()
 def update_sound():
-    return dict(form=crud.update(db.sounds, a0, onvalidation=blobstore_upload, next=URL('my_uploads'), message=T('Upload complete!')))
+    form=crud.update(db.sounds, a0, onvalidation=blobstore_upload, next=URL('my_uploads'), message=T('Upload complete!'))
+    return response.render('default/upload.html', locals())
 
 @auth.requires_login()
 @auth.requires_signature()
@@ -82,7 +84,7 @@ def details():
     if not detail_sound:
         raise HTTP(404)    
     
-    new_count = detail_sound.play_count + 1
+    new_count = detail_sound.play_count or 0 + 1
     detail_sound.update_record(play_count=new_count)
 
     if 'len' in request.vars: page=int(request.vars.page)
