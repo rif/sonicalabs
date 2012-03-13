@@ -1,18 +1,11 @@
 
 <h4>{{=T('Most popular')}}</h4>
 
-{{for i, sound in enumerate(sounds):}}
-{{if i==items_per_page: break}}
+{{for sound in sounds:}}
 <div class="sound">
   <div class="title">{{=A(sound.title,_href=URL('details', args=sound.id))}}</div>
   <div class="info">{{=T('By')}} {{=sound.username}} {{=sound.play_count}} {{=T('views')}}</div>
 </div>
 {{pass}}
 
-{{if page:}}
-{{=A(T('previous ten'), _href=URL(args=[page-1]), cid=request.cid)}}
-{{pass}}
-
-{{if len(sounds)>items_per_page:}}
-{{=A(T('next ten'), _href=URL(args=[page+1]), cid=request.cid)}}
-{{pass}}
+{{=paginator}}
