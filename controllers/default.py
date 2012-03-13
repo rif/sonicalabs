@@ -69,17 +69,17 @@ def my_uploads():
     paginator = Paginator(paginate=10, 
                           extra_vars={'v':1}, anchor='main',
                           renderstyle=True) 
-    paginator.records = db(active_sounds).count()
+    paginator.records = db(user_sounds).count()
     paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
 
     sounds = db(user_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
     return locals()
 
-def details():
+def details():    
     detail_sound = db.sounds(a0)    
     if not detail_sound:
         raise HTTP(404)    
-    
+    query = active_sounds & (db.sounds.created_by==detail_sound.created_by)
     new_count = detail_sound.play_count or 0 + 1
     detail_sound.update_record(play_count=new_count)
 
@@ -87,10 +87,10 @@ def details():
     paginator = Paginator(paginate=paginate_selector.paginate, 
                           extra_vars={'v':1}, anchor='main',
                           renderstyle=True) 
-    paginator.records = db(active_sounds).count()
+    paginator.records = db(query).count()
     paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
 
-    sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
+    sounds = db(query).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
     return locals()
 
 def most_popular():        
