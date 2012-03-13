@@ -427,7 +427,7 @@
 			"file": "views/default/index.html",
 			"settings":
 			{
-				"buffer_size": 1557,
+				"buffer_size": 1360,
 				"line_ending": "Unix"
 			}
 		},
@@ -443,7 +443,7 @@
 			"file": "controllers/default.py",
 			"settings":
 			{
-				"buffer_size": 4412,
+				"buffer_size": 4787,
 				"line_ending": "Unix"
 			}
 		},
@@ -451,7 +451,7 @@
 			"file": "views/default/my_uploads.html",
 			"settings":
 			{
-				"buffer_size": 1154,
+				"buffer_size": 974,
 				"line_ending": "Unix"
 			}
 		},
@@ -468,7 +468,7 @@
 			"file": "views/default/details.html",
 			"settings":
 			{
-				"buffer_size": 1782,
+				"buffer_size": 1793,
 				"line_ending": "Unix"
 			}
 		},
@@ -484,7 +484,7 @@
 			"file": "views/default/most_popular.html",
 			"settings":
 			{
-				"buffer_size": 522,
+				"buffer_size": 290,
 				"line_ending": "Unix"
 			}
 		},
@@ -492,7 +492,7 @@
 			"file": "static/css/web2py.css",
 			"settings":
 			{
-				"buffer_size": 10606,
+				"buffer_size": 10686,
 				"line_ending": "Unix"
 			}
 		}
@@ -1004,15 +1004,15 @@
 					"file": "views/default/index.html",
 					"settings":
 					{
-						"buffer_size": 1557,
+						"buffer_size": 1360,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1242,
-								1242
+								837,
+								837
 							]
 						],
 						"settings":
@@ -1039,8 +1039,8 @@
 						"selection":
 						[
 							[
-								3191,
-								3201
+								3634,
+								3634
 							]
 						],
 						"settings":
@@ -1050,7 +1050,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1060,15 +1060,15 @@
 					"file": "controllers/default.py",
 					"settings":
 					{
-						"buffer_size": 4412,
+						"buffer_size": 4787,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3747,
-								3747
+								2884,
+								2884
 							]
 						],
 						"settings":
@@ -1078,7 +1078,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 675.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1088,15 +1088,15 @@
 					"file": "views/default/my_uploads.html",
 					"settings":
 					{
-						"buffer_size": 1154,
+						"buffer_size": 974,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								450,
-								450
+								102,
+								102
 							]
 						],
 						"settings":
@@ -1141,20 +1141,21 @@
 					"file": "views/default/details.html",
 					"settings":
 					{
-						"buffer_size": 1782,
+						"buffer_size": 1793,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								575,
-								575
+								526,
+								526
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1193,15 +1194,15 @@
 					"file": "views/default/most_popular.html",
 					"settings":
 					{
-						"buffer_size": 522,
+						"buffer_size": 290,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31,
-								31
+								288,
+								288
 							]
 						],
 						"settings":
@@ -1219,15 +1220,15 @@
 					"file": "static/css/web2py.css",
 					"settings":
 					{
-						"buffer_size": 10606,
+						"buffer_size": 10686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10440,
-								10440
+								10678,
+								10678
 							]
 						],
 						"settings":
@@ -1237,7 +1238,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4832.0,
+						"translation.y": 5147.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1276,10 +1277,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.exec":
-	{
-		"height": 100.0
-	},
 	"replace":
 	{
 		"height": 62.0

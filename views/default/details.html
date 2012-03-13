@@ -12,9 +12,8 @@
 {{=plugin_comments('sounds',detail_sound.id)}}
 </div>
 
-
 {{if len(sounds) > 0:}}	
-	<h3>{{=T('By the same user')}}</h3>
+	<h3>{{=T('By the same author')}}</h3>
 	<hr/>
 	{{=paginate_selector}} {{=paginate_info}}
 	{{ for sound in sounds:}}		
