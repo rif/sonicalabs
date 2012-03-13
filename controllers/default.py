@@ -1,27 +1,22 @@
 # -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
-
-#########################################################################
-## This is a samples controller
-## - index is the default action of any application
-## - user is required for authentication and authorization
-## - download is for downloading files uploaded in the db (does streaming)
-## - call exposes all registered services (none by default)
-#########################################################################
+from plugin_paginator import Paginator, PaginateSelector, PaginateInfo
 
 def index():
-    if len(request.args): page=int(a0)
-    else: page=0
-    items_per_page=20
-    limitby=(page*items_per_page,(page+1)*items_per_page+1)
-
+    paginate_selector = PaginateSelector(anchor='main')
+    paginator = Paginator(paginate=paginate_selector.paginate, 
+                          extra_vars={'v':1}, anchor='main',
+                          renderstyle=True) 
+    paginator.records = db(active_sounds).count()
+    paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
+    
     form = SQLFORM.factory(Field('query', default=T('Search')))    
+    
     sounds = None
     if form.process(message_onsuccess="").accepted and form.vars.query:
         values = form.vars.query        
-        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=limitby).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
+        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby()).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
     else:
-        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=limitby)
+        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
     return locals()
 
 @auth.requires_login()
@@ -70,13 +65,14 @@ def delete_sound():
 
 @auth.requires_login()
 @auth.requires_signature()
-def my_uploads():
-    if len(request.args): page=int(a0)
-    else: page=0
-    items_per_page=20
-    limitby=(page*items_per_page,(page+1)*items_per_page+1)
+def my_uploads():    
+    paginator = Paginator(paginate=10, 
+                          extra_vars={'v':1}, anchor='main',
+                          renderstyle=True) 
+    paginator.records = db(active_sounds).count()
+    paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
 
-    sounds = db(user_sounds).select(orderby=~db.sounds.created_on, limitby=limitby)
+    sounds = db(user_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
     return locals()
 
 def details():
@@ -87,20 +83,21 @@ def details():
     new_count = detail_sound.play_count or 0 + 1
     detail_sound.update_record(play_count=new_count)
 
-    if 'len' in request.vars: page=int(request.vars.page)
-    else: page=0
-    items_per_page=20
-    limitby=(page*items_per_page,(page+1)*items_per_page+1)
-    sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on, limitby=limitby)
+    paginate_selector = PaginateSelector(anchor='main')
+    paginator = Paginator(paginate=paginate_selector.paginate, 
+                          extra_vars={'v':1}, anchor='main',
+                          renderstyle=True) 
+    paginator.records = db(active_sounds).count()
+    paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
+
+    sounds = db(active_sounds & (db.sounds.created_by==detail_sound.created_by)).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
     return locals()
 
-def most_popular():
-    if len(request.args): page=int(a0)
-    else: page=0
-    items_per_page=10
-    limitby=(page*items_per_page,(page+1)*items_per_page+1)
+def most_popular():        
+    paginator = Paginator(paginate=10, extra_vars={'v':1}, anchor='main', renderstyle=True) 
+    paginator.records = db(active_sounds).count()    
 
-    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=limitby)
+    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=paginator.limitby())
     return locals()
 
 def user():

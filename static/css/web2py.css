@@ -381,3 +381,8 @@ div.sound>div.info {
 div.sound>div.actions {
     float: right;
 }
+
+.paginate_info, .paginate_selector {
+    float: right;
+    margin-right: 5px;
+}

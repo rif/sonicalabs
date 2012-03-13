@@ -8,8 +8,8 @@
 {{ if form.vars.query:}}
 {{=T('Searching for:')}} {{=form.vars.query}}
 {{pass}}
-{{ for i, sound in enumerate(sounds):}}
-{{if i==items_per_page: break}}
+{{=paginate_selector}}{{=paginate_info}}
+{{ for sound in sounds:}}
 <div class="sound">
   <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" title="{{=sound.title}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
   <div class="info">{{=T('Added')}} {{=prettydate(sound.created_on)}} {{=T('by')}} {{=sound.username}} {{=sound.play_count}} {{=T('views')}}</div>
@@ -17,13 +17,7 @@
 </div>
 {{pass}}
 
-{{if page:}}
-<a href="{{=URL(args=[page-1])}}">{{=T('previous')}}</a>
-{{pass}}
-
-{{if len(sounds)>items_per_page:}}
-<a href="{{=URL(args=[page+1])}}">{{=T('next')}}</a>
-{{pass}}
+{{=paginator}}
 
 {{block right_sidebar}}
 {{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
