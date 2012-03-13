@@ -7,7 +7,11 @@
 	<div class="description">{{=detail_sound.description}}</div>
 </div>
 
-{{=plugin_wiki.widget('comments',table='sounds', record_id=detail_sound.id)}}
+<h5>{{=T('Comments')}}</h5>
+<div id="comments">
+{{=plugin_comments('sounds',detail_sound.id)}}
+</div>
+
 
 {{if len(sounds) > 0:}}
 	<h3>{{=T('By the same user')}}</h3>
