@@ -93,11 +93,8 @@ def details():
     sounds = db(query).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
     return locals()
 
-def most_popular():        
-    paginator = Paginator(paginate=10, extra_vars={'v':1}, anchor='main', renderstyle=True) 
-    paginator.records = db(active_sounds).count()    
-
-    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=paginator.limitby())
+def most_popular():              
+    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=10)
     return locals()
 
 def user():
