@@ -440,13 +440,10 @@
 			}
 		},
 		{
-			"contents": "# -*- coding: utf-8 -*-\nfrom plugin_paginator import Paginator, PaginateSelector, PaginateInfo\n\ndef index():\n    paginate_selector = PaginateSelector(anchor='main')\n    paginator = Paginator(paginate=paginate_selector.paginate, \n                          extra_vars={'v':1}, anchor='main',\n                          renderstyle=True) \n    paginator.records = db(active_sounds).count()\n    paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)\n    \n    form = SQLFORM.factory(Field('query', default=T('Search')))    \n    \n    sounds = None\n    if form.process(message_onsuccess=\"\").accepted and form.vars.query:\n        values = form.vars.query        \n        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby()).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())\n    else:\n        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())\n    return locals()\n\n@auth.requires_login()\ndef record():\n    return locals()\n\n\ndef blobstore_upload(form):    \n    if request.env.web2py_runtime_gae and form.vars.file is not None and form.vars.file != '':        \n        from google.appengine.api import files\n        from google.appengine.ext import blobstore\n        # Create the file        \n        file_name = files.blobstore.create(mime_type='application/octet-stream', _blobinfo_uploaded_filename=form.vars.file.filename)        \n        # Open the file and write to it\n        with files.open(file_name, 'a') as f:            \n            f.write(form.vars.file.file.read())\n\n        # Finalize the file. Do this before attempting to read it.\n        files.finalize(file_name)\n\n        # Get the file's blob key        \n        form.vars.blob_key = files.blobstore.get_blob_key(file_name)        \n        form.vars.file = None        \n\n@auth.requires_login()\ndef create_sound():\n    form=crud.create(db.sounds, onvalidation=blobstore_upload, next=URL('my_uploads', user_signature=True), message=T('Upload complete!'))\n    return response.render('default/upload.html', locals())\n\n@auth.requires_login()\n@auth.requires_signature()\ndef update_sound():\n    form=crud.update(db.sounds, a0, onvalidation=blobstore_upload, next=URL('my_uploads', user_signature=True), message=T('Upload complete!'))\n    return response.render('default/upload.html', locals())\n\n@auth.requires_login()\n@auth.requires_signature()\ndef delete_sound():\n    from google.appengine.ext import blobstore\n    sound = db.sounds(a0)\n    if not sound:\n        raise HTTP(404)\n    blobstore.delete_async(sound.blob_key)\n    crud.delete(db.sounds, a0, next=URL('my_uploads'), message=T('Sound deleted!'))\n    return locals()\n\n@auth.requires_login()\n@auth.requires_signature()\ndef my_uploads():    \n    paginator = Paginator(paginate=10, \n                          extra_vars={'v':1}, anchor='main',\n                          renderstyle=True) \n    paginator.records = db(user_sounds).count()\n    paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)\n\n    sounds = db(user_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())\n    return locals()\n\ndef details():    \n    detail_sound = db.sounds(a0)    \n    if not detail_sound:\n        raise HTTP(404)    \n    query = active_sounds & (db.sounds.created_by==detail_sound.created_by)\n    new_count = detail_sound.play_count or 0 + 1\n    detail_sound.update_record(play_count=new_count)\n\n    paginate_selector = PaginateSelector(anchor='main')\n    paginator = Paginator(paginate=paginate_selector.paginate, \n                          extra_vars={'v':1}, anchor='main',\n                          renderstyle=True) \n    paginator.records = db(query).count()\n    paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)\n\n    sounds = db(query).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())\n    return locals()\n\ndef most_popular():        \n    paginator = Paginator(paginate=10, extra_vars={'v':1}, anchor='main', renderstyle=True) \n    paginator.records = db(active_sounds).count()    \n\n    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=paginator.limitby())\n    return locals()\n\ndef user():\n    return dict(form=auth())\n\n\ndef download():\n    return response.download(request,db)\n\ndef download_blob():    \n    if request.env.web2py_runtime_gae: \n        from google.appengine.ext import blobstore        \n        sound = db.sounds(a0)    \n        if not sound:\n            raise HTTP(404)\n        blob_info = blobstore.BlobInfo.get(sound.blob_key)\n        return response.stream(blob_info.open())                \n    else:        \n        return response.download(request,db)\n",
 			"file": "controllers/default.py",
-			"file_size": 4635,
-			"file_write_time": 1331720901000000,
 			"settings":
 			{
-				"buffer_size": 4794,
+				"buffer_size": 4728,
 				"line_ending": "Unix"
 			}
 		},
@@ -729,6 +726,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"limitby=10",
 			")",
 			"s.",
 			"file",
@@ -855,8 +853,7 @@
 			"click",
 			"print",
 			"totalno",
-			"comanda",
-			"cart"
+			"comanda"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -915,7 +912,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1042,8 +1039,8 @@
 						"selection":
 						[
 							[
-								2937,
-								2937
+								2981,
+								2981
 							]
 						],
 						"settings":
@@ -1053,7 +1050,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1063,15 +1060,15 @@
 					"file": "controllers/default.py",
 					"settings":
 					{
-						"buffer_size": 4794,
+						"buffer_size": 4728,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2886,
-								2886
+								4290,
+								4290
 							]
 						],
 						"settings":
@@ -1081,7 +1078,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 1003.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
