@@ -122,3 +122,6 @@ def terms():
 
 def contact():
     return dict()
+
+def buy():
+    return dict()

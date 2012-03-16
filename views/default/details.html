@@ -2,9 +2,12 @@
 {{extend 'layout.html'}}
 
 <div class="sound">
-	<div class="title"><a href="{{=URL('download_blob', args=detail_sound.id)}}" title="{{=detail_sound.title}}" type="{{=detail_sound.mime_type}}"></a> {{=detail_sound.title}}</h3></div>
+	<div class="title"><a href="{{=URL('download_blob', args=detail_sound.id)}}" title="{{=detail_sound.title}}" type="{{=detail_sound.mime_type}}"></a> {{=detail_sound.title}}</h3></div>	
 	<div class="info">{{=T('Added')}} {{=prettydate(detail_sound.created_on)}} {{=T('by')}} {{=detail_sound.username}} {{=detail_sound.play_count}} {{=T('views')}}</div>
 	<div class="description">{{=detail_sound.description}}</div>
+	{{if detail_sound.price > 0:}}
+	<div id="buy"><span id="price">{{=detail_sound.price}}$</span> <a class="button" href="{{=URL('buy')}}">{{=T('Buy')}}</a></div>
+	{{pass}}
 </div>
 
 <h5>{{=T('Comments')}}</h5>
@@ -19,7 +22,7 @@
 	{{ for sound in sounds:}}		
 		{{if sound.id != detail_sound.id:}}
 		<div class="sound">
-		  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" title="{{=sound.title}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
+		  <div class="title"><a href="{{=URL('download_blob', args=sound.id)}}" title="{{=sound.title}}" type="{{=sound.mime_type}}"></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>		  
 		  <div class="info">{{=T('Added')}} {{=prettydate(sound.created_on)}} {{=sound.play_count}} {{=T('views')}}</div>
 		  <div class="description">{{=sound.description}}</div> 	  
 		</div>
