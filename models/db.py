@@ -73,7 +73,7 @@ db.define_table("sounds",
     Field('length', 'double', writable=False, readable=False),
     Field('play_count', 'integer', readable=False, writable=False, default=0),
     Field('release_date', 'date', comment=T('Select a date to release this recording in the future')),
-    Field('email', requires = IS_EMPTY_OR(IS_EMAIL(error_message=T('Invalid email!'))), comment=T('Email to send the release notification')),
+    Field('email', requires = IS_EMPTY_OR(IS_EMAIL(error_message=T('Invalid email!'))), comment=T('Email to be sent to (the release notification)')),
     auth.signature,
     format='%(title)s'
 )
