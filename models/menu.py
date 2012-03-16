@@ -6,7 +6,7 @@
 #########################################################################
 
 response.title = ' SonicaLabs'
-response.subtitle = T('Let your sound experience the world!')
+response.subtitle = T('Experience THE EXPERIENCE')
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
 response.meta.author = 'Radu Fericean <radu.fericean@wisebiz-group.com>'

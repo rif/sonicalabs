@@ -435,7 +435,7 @@
 			"file": "models/db.py",
 			"settings":
 			{
-				"buffer_size": 3680,
+				"buffer_size": 3667,
 				"line_ending": "Unix"
 			}
 		},
@@ -443,7 +443,7 @@
 			"file": "controllers/default.py",
 			"settings":
 			{
-				"buffer_size": 4728,
+				"buffer_size": 4839,
 				"line_ending": "Unix"
 			}
 		},
@@ -451,7 +451,7 @@
 			"file": "views/default/my_uploads.html",
 			"settings":
 			{
-				"buffer_size": 974,
+				"buffer_size": 983,
 				"line_ending": "Unix"
 			}
 		},
@@ -473,10 +473,10 @@
 			}
 		},
 		{
-			"file": "views/default/upload.html",
+			"file": "views/default/create_sound.html",
 			"settings":
 			{
-				"buffer_size": 282,
+				"buffer_size": 292,
 				"line_ending": "Unix"
 			}
 		},
@@ -492,7 +492,15 @@
 			"file": "static/css/web2py.css",
 			"settings":
 			{
-				"buffer_size": 10686,
+				"buffer_size": 10690,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/default/update_sound.html",
+			"settings":
+			{
+				"buffer_size": 327,
 				"line_ending": "Unix"
 			}
 		}
@@ -912,7 +920,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -955,8 +963,8 @@
 						"selection":
 						[
 							[
-								4267,
-								4276
+								5577,
+								5577
 							]
 						],
 						"settings":
@@ -966,7 +974,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 26.0,
+						"translation.y": 1250.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1032,15 +1040,15 @@
 					"file": "models/db.py",
 					"settings":
 					{
-						"buffer_size": 3680,
+						"buffer_size": 3667,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2981,
-								2981
+								3046,
+								3046
 							]
 						],
 						"settings":
@@ -1050,7 +1058,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1060,15 +1068,15 @@
 					"file": "controllers/default.py",
 					"settings":
 					{
-						"buffer_size": 4728,
+						"buffer_size": 4839,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4290,
-								4290
+								2467,
+								2467
 							]
 						],
 						"settings":
@@ -1078,7 +1086,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1003.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1088,15 +1096,15 @@
 					"file": "views/default/my_uploads.html",
 					"settings":
 					{
-						"buffer_size": 974,
+						"buffer_size": 983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								102,
-								102
+								983,
+								983
 							]
 						],
 						"settings":
@@ -1165,18 +1173,18 @@
 				},
 				{
 					"buffer": 9,
-					"file": "views/default/upload.html",
+					"file": "views/default/create_sound.html",
 					"settings":
 					{
-						"buffer_size": 282,
+						"buffer_size": 292,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								282,
-								282
+								111,
+								111
 							]
 						],
 						"settings":
@@ -1220,15 +1228,15 @@
 					"file": "static/css/web2py.css",
 					"settings":
 					{
-						"buffer_size": 10686,
+						"buffer_size": 10690,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10678,
-								10678
+								10684,
+								10684
 							]
 						],
 						"settings":
@@ -1239,6 +1247,32 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 5147.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "views/default/update_sound.html",
+					"settings":
+					{
+						"buffer_size": 327,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								327,
+								327
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
