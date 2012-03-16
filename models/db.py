@@ -63,15 +63,17 @@ def get_username(row):
 
 
 db.define_table("sounds",
-    Field('title', required=True),
+    Field('title', required=True, requires=IS_NOT_EMPTY()),
     Field('description', 'text'),
     Field('keywords', comment=T('Comma separated key words')),
     Field('blob_key', writable=False, readable=False),
-    Field('file', 'upload', requires=IS_UPLOAD_FILENAME(extension='mp3'), comment=T('MP3 file. 10Mb size limit.')),
+    Field('file', 'upload', requires=IS_UPLOAD_FILENAME(extension='mp3', error_message=T('Please upload an mp3 file')), comment=T('MP3 file. 10Mb size limit.')),
     Field('language', 'list:string', requires=IS_IN_SET(('Română','English','Deutsch')), default='English'),
     Field('price', 'double', default=0.0, comment='$USD'),
     Field('length', 'double', writable=False, readable=False),
-    Field('play_count', 'integer', readable=False, writable=False, default=0),    
+    Field('play_count', 'integer', readable=False, writable=False, default=0),
+    Field('release_date', 'date', comment=T('Select a date to release this recording in the future')),
+    Field('email', requires = IS_EMPTY_OR(IS_EMAIL(error_message=T('Invalid email!'))), comment=T('Email to send the release notification')),
     auth.signature,
     format='%(title)s'
 )
