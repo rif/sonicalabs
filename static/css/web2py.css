@@ -395,3 +395,13 @@ div.sound>div.actions {
 #otherlinks a {
     margin-right: 20px;
 }
+
+#buy {
+    float: right;
+    margin-right: 50px;
+}
+
+#buy>#price {
+    font-size: 1.2em;
+    font-weight: bold;    
+}
