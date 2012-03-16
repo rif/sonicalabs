@@ -386,3 +386,12 @@ div.sound>div.actions {
     float: right;
     margin-right: 5px;    
 }
+
+#otherlinks {
+    float: left;
+    margin-left: 20px;
+}
+
+#otherlinks a {
+    margin-right: 20px;
+}

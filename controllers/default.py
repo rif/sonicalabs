@@ -113,3 +113,12 @@ def download_blob():
         return response.stream(blob_info.open())                
     else:        
         return response.download(request,db)
+
+def about():
+    return dict()
+
+def terms():
+    return dict()
+
+def contact():
+    return dict()
