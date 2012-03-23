@@ -10,3 +10,4 @@ uploads/*
 databases/*
 sessions/*
 errors/*
+*.sublime*
