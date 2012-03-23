@@ -12,10 +12,10 @@ def index():
     sounds = None
     if form.process(message_onsuccess="").accepted and form.vars.query:
         values = form.vars.query        
-        sounds = db(active_sounds).select(orderby=~db.sounds.created_on,
+        sounds = db(active_sounds).select(orderby=~Sounds.created_on,
             limitby=paginator.limitby()).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
     else:
-        sounds = db(active_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
+        sounds = db(active_sounds).select(orderby=~Sounds.created_on, limitby=paginator.limitby())
     return locals()
 
 @auth.requires_login()
@@ -42,14 +42,14 @@ def blobstore_upload(form):
 
 @auth.requires_login()
 def create_sound():
-    form=crud.create(db.sounds, onvalidation=blobstore_upload, next=URL('my_uploads', user_signature=True), message=T('Upload complete!'))
+    form=crud.create(Sounds, onvalidation=blobstore_upload, next=URL('my_uploads', user_signature=True), message=T('Upload complete!'))
     return locals()
 
 @auth.requires_login()
 @auth.requires_signature()
 def update_sound():    
-    sound = db.sounds(a0) or redirect(URL('index'))
-    form = SQLFORM(db.sounds, sound, fields=['title', 'description', 'keywords', 'language', 'price'], showid=False)
+    sound = Sounds(a0) or redirect(URL('index'))
+    form = SQLFORM(Sounds, sound, fields=['title', 'description', 'keywords', 'language', 'price'], showid=False)
     if form.process().accepted:
        response.flash = T('Sound info updated!')
        redirect(URL('my_uploads', user_signature=True))
@@ -61,9 +61,9 @@ def update_sound():
 @auth.requires_signature()
 def delete_sound():
     from google.appengine.ext import blobstore    
-    sound = db.sounds(a0) or redirect(URL('index'))
+    sound = Sounds(a0) or redirect(URL('index'))
     blobstore.delete_async(sound.blob_key)
-    crud.delete(db.sounds, a0, next=URL('my_uploads', user_signature=True), message=T('Sound deleted!'))
+    crud.delete(Sounds, a0, next=URL('my_uploads', user_signature=True), message=T('Sound deleted!'))
     return locals()
 
 @auth.requires_login()
@@ -73,12 +73,12 @@ def my_uploads():
     paginator.records = db(user_sounds).count()
     paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
 
-    sounds = db(user_sounds).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
+    sounds = db(user_sounds).select(orderby=~Sounds.created_on, limitby=paginator.limitby())
     return locals()
 
 def details():    
-    detail_sound = db.sounds(a0) or redirect(URL('index'))   
-    query = active_sounds & (db.sounds.created_by==detail_sound.created_by)
+    detail_sound = Sounds(a0) or redirect(URL('index'))   
+    query = active_sounds & (Sounds.created_by==detail_sound.created_by)
     new_count = detail_sound.play_count or 0 + 1
     detail_sound.update_record(play_count=new_count)
 
@@ -87,7 +87,7 @@ def details():
     paginator.records = db(query).count()
     paginate_info = PaginateInfo(paginator.page, paginator.paginate, paginator.records)
 
-    sounds = db(query).select(orderby=~db.sounds.created_on, limitby=paginator.limitby())
+    sounds = db(query).select(orderby=~Sounds.created_on, limitby=paginator.limitby())
     return locals()
 
 def most_popular():        
@@ -95,7 +95,7 @@ def most_popular():
     paginator = Paginator(paginate=paginate_selector.paginate, extra_vars={'v':1}, anchor='main', renderstyle=True) 
     paginator.records = db(active_sounds).count()    
 
-    sounds = db(active_sounds).select(orderby=~db.sounds.play_count, limitby=paginator.limitby())
+    sounds = db(active_sounds).select(orderby=~Sounds.play_count, limitby=paginator.limitby())
     return locals()
 
 def user():
@@ -108,7 +108,7 @@ def download():
 def download_blob():    
     if request.env.web2py_runtime_gae: 
         from google.appengine.ext import blobstore        
-        sound = db.sounds(a0) or redirect(URL('index'))
+        sound = Sounds(a0) or redirect(URL('index'))
         blob_info = blobstore.BlobInfo.get(sound.blob_key)
         return response.stream(blob_info.open())                
     else:        

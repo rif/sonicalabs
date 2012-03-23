@@ -36,9 +36,9 @@ def _():
     # useful links to internal and external resources
     response.menu+=[
         (SPAN('Explore',_style='color:yellow'),False, None, [
-                (T('Upload a file'),False,URL('default','upload')),
+                (T('Upload a file'),False,URL('default','create_sound')),
                 (T('Record a sound'),False,URL('default','record')),
-                (T('My uploads'),False,URL('default','my_uploads')),
+                (T('My uploads'),False,URL('default','my_uploads', user_signature=True)),
                 ]
          )]
 _()

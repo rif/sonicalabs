@@ -62,7 +62,7 @@ def get_username(row):
     return u.first_name + ' ' + u.last_name if u else T("Anonymous")
 
 
-db.define_table("sounds",
+Sounds = db.define_table("sounds",
     Field('title', required=True, requires=IS_NOT_EMPTY()),
     Field('description', 'text'),
     Field('keywords', comment=T('Comma separated key words')),
@@ -77,9 +77,9 @@ db.define_table("sounds",
     auth.signature,
     format='%(title)s'
 )
-db.sounds.mime_type = Field.Virtual(lambda row: 'audio/mpeg') #'audio/ogg' if row.sounds.file.rsplit('.', 1)[-1] == 'ogg' else 'audio/mpeg')
-db.sounds.username = Field.Virtual(get_username)
+Sounds.mime_type = Field.Virtual(lambda row: 'audio/mpeg') #'audio/ogg' if row.sounds.file.rsplit('.', 1)[-1] == 'ogg' else 'audio/mpeg')
+Sounds.username = Field.Virtual(get_username)
 
 a0,a1 = request.args(0), request.args(1)
-active_sounds = db.sounds.is_active == True
-user_sounds = db.sounds.created_by == auth.user_id
+active_sounds = Sounds.is_active == True
+user_sounds = Sounds.created_by == auth.user_id
