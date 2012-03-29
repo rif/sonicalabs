@@ -2,6 +2,7 @@
 {{extend 'layout.html'}}
 
 <h4>{{=T('Contact')}}</h4>
+{{=form}}
 
 {{block right_sidebar}}
 {{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
