@@ -120,8 +120,20 @@ def about():
 def terms():
     return dict()
 
-def contact():
-    return dict()
+def contact():   
+    form=SQLFORM.factory(
+        Field('your_name',requires=IS_NOT_EMPTY()),
+        Field('your_email',requires=IS_EMAIL()),
+        Field('message', 'text', requires=IS_NOT_EMPTY()))
+    if form.process().accepted:
+        if mail.send(to='radu.fericean@wisebiz-group.com;gmurgan@sympatico.ca;teodor.giles@wisebiz-group.com',
+                  subject='from %s (%s)' % (form.vars.your_name, form.vars.your_email),
+                  message = form.vars.message):
+            response.flash = 'Thank you'
+            response.js = "jQuery('#%s').hide()" % request.cid
+        else:
+            form.errors.your_email = "Unable to send the email"
+    return dict(form=form)
 
 def buy():
     return dict()

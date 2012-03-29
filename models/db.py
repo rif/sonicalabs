@@ -37,9 +37,9 @@ auth.define_tables()
 
 ## configure email
 mail=auth.settings.mailer
-mail.settings.server = 'logging' or 'smtp.gmail.com:587'
-mail.settings.sender = 'sonicalbs@gmail.com'
-mail.settings.login = 'ustest:greta.1'
+mail.settings.server =  'gae'
+mail.settings.sender = 'fericean@gmail.com'
+#mail.settings.login = 'user:pass'
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False
@@ -68,7 +68,7 @@ Sounds = db.define_table("sounds",
     Field('keywords', comment=T('Comma separated key words')),
     Field('blob_key', writable=False, readable=False),
     Field('file', 'upload', requires=IS_UPLOAD_FILENAME(extension='mp3', error_message=T('Please upload an mp3 file')), comment=T('MP3 file. 10Mb size limit.')),
-    Field('language', 'list:string', requires=IS_IN_SET(('Română','English','Deutsch')), default='English'),
+    Field('language', 'list:string', requires=IS_IN_SET(('Română','English','Deutsch'))),
     Field('price', 'double', default=0.0, comment='$USD'),
     Field('length', 'double', writable=False, readable=False),
     Field('play_count', 'integer', readable=False, writable=False, default=0),
