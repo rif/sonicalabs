@@ -10,10 +10,10 @@
 # request.requires_https()
 
 if not request.env.web2py_runtime_gae:    
-    db = DAL('sqlite://storage.sqlite')
+    db = DAL('sqlite://storage.sqlite', migrate_enabled=False)
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
-    db = DAL('google:datastore')
+    db = DAL('google:datastore', migrate_enabled=False)
     ## store sessions and tickets there
     session.connect(request, response, db = db)
     ## or store session in Memcache, Redis, etc.
@@ -46,8 +46,6 @@ auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
-## if you need to use OpenID, Facebook, MySpace, Twitter, Linkedin, etc.
-## register with janrain.com, write your domain:api_key in private/janrain.key
 from gluon.contrib.login_methods.rpx_account import use_janrain
 use_janrain(auth,filename='private/janrain.key')
 
