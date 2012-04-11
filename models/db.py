@@ -61,12 +61,12 @@ def get_username(row):
 
 
 Sounds = db.define_table("sounds",
-    Field('title', required=True, requires=IS_NOT_EMPTY()),
+    Field('title', required=True),
     Field('description', 'text'),
     Field('keywords', comment=T('Comma separated key words')),
     Field('blob_key', writable=False, readable=False),
     Field('file', 'upload', requires=IS_UPLOAD_FILENAME(extension='mp3', error_message=T('Please upload an mp3 file')), comment=T('MP3 file. 10Mb size limit.')),
-    Field('language', 'list:string', requires=IS_IN_SET(('Română','English','Deutsch'))),
+    Field('language', 'list:string', requires=IS_IN_SET(('English','Română','Deutsch')), default='English'),
     Field('price', 'double', default=0.0, comment='$USD'),
     Field('length', 'double', writable=False, readable=False),
     Field('play_count', 'integer', readable=False, writable=False, default=0),

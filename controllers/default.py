@@ -23,7 +23,7 @@ def record():
     return locals()
 
 
-def blobstore_upload(form):    
+def blobstore_upload(form):        
     if request.env.web2py_runtime_gae and form.vars.file is not None and form.vars.file != '':        
         from google.appengine.api import files
         from google.appengine.ext import blobstore
@@ -42,7 +42,15 @@ def blobstore_upload(form):
 
 @auth.requires_login()
 def create_sound():
-    form=crud.create(Sounds, onvalidation=blobstore_upload, next=URL('my_uploads', user_signature=True), message=T('Upload complete!'))
+    form = SQLFORM(Sounds)        
+    if form.process().accepted:
+        new_sound = Sounds(form.vars.id)
+        if not new_sound.title and request.vars.file != None:                
+            new_sound.update_record(title = request.vars.file.filename)
+        response.flash = T('Upload complete!')
+        redirect(URL('my_uploads', user_signature=True))
+    elif form.errors:
+       response.flash = T('form has errors') 
     return locals()
 
 @auth.requires_login()
@@ -59,10 +67,11 @@ def update_sound():
 
 @auth.requires_login()
 @auth.requires_signature()
-def delete_sound():
-    from google.appengine.ext import blobstore    
-    sound = Sounds(a0) or redirect(URL('index'))
-    blobstore.delete_async(sound.blob_key)
+def delete_sound():    
+    if request.env.web2py_runtime_gae:
+        from google.appengine.ext import blobstore
+        sound = Sounds(a0) or redirect(URL('index'))
+        blobstore.delete_async(sound.blob_key)
     crud.delete(Sounds, a0, next=URL('my_uploads', user_signature=True), message=T('Sound deleted!'))
     return locals()
 
@@ -118,6 +127,9 @@ def about():
     return dict()
 
 def terms():
+    return dict()
+
+def howitworks():
     return dict()
 
 def contact():   
