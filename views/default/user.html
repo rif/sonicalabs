@@ -2,7 +2,7 @@
 <h2>{{=T( request.args(0).replace('_',' ').capitalize() )}}</h2>
 <div id="web2py_user_form">
   {{if 'profile' in request.args(0):}}    
-    <a href="http://www.gravatar.com"><img src='{{=Gravatar(auth.user.email, size=200).thumb}}' alt="gravatar"></a>    
+    <a href="http://www.gravatar.com"><img src='{{=Gravatar(auth.user.email, size=200).thumb}}' alt="gravatar"> Change on gravatar</a>    
     <blockquote style='width:300px;'>
     {{try:}}
         {{=Gravatar(auth.user.email).profile['aboutMe']}}
