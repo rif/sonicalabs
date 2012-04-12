@@ -46,23 +46,43 @@ def create_sound():
     if form.process(onvalidation=blobstore_upload).accepted:
         new_sound = Sounds(form.vars.id)
         if not new_sound.title and request.vars.file != None:                
-            new_sound.update_record(title = request.vars.file.filename)
+            new_sound.update_record(title = request.vars.file.filename)        
+        if new_sound.release_date and new_sound.release_date > request.now:
+            new_sound.update_record(is_active=False)            
         response.flash = T('Upload complete!')
         redirect(URL('my_uploads', user_signature=True))
     elif form.errors:
        response.flash = T('form has errors') 
     return locals()
 
+def activate_scheduled_sounds():
+    for_activation = db((Sounds.is_active == False) & (Sounds.release_date != None)).select(orderby=Sounds.release_date)
+    activated_sounds = 0
+    for sound in for_activation:
+        if sound.release_date < request.now:
+            sound.update_record(is_active=True)
+            mail.send(to=sound.email, subject='%s released a recording' % (sound.username),
+                message = T('You can check the recording here: ') + URL('detail', args=sound.id))
+            activated_sounds += 1
+        else:
+            break # the dates are in order and the if condition suggest we are in the future
+    return 'Activated %d sounds.' % activated_sounds
+
 @auth.requires_login()
 @auth.requires_signature()
-def update_sound():    
+def update_sound():
     sound = Sounds(a0) or redirect(URL('index'))
-    form = SQLFORM(Sounds, sound, fields=['title', 'description', 'keywords', 'language', 'price'], showid=False)
+    form = SQLFORM(Sounds, sound, fields=['title', 'description', 'keywords', 'language', 'price', 'release_date', 'email' , 'is_active'], showid=False)
     if form.process().accepted:
-       response.flash = T('Sound info updated!')
-       redirect(URL('my_uploads', user_signature=True))
+        new_sound = Sounds(form.vars.id)
+        if not new_sound.title and request.vars.file != None:                
+            new_sound.update_record(title = request.vars.file.filename)        
+        if new_sound.release_date and new_sound.release_date > request.now:
+            new_sound.update_record(is_active=False)
+        response.flash = T('Sound info updated!')
+        redirect(URL('my_uploads', user_signature=True))
     elif form.errors:
-       response.flash = T('form has errors')    
+        response.flash = T('form has errors')    
     return locals()
 
 @auth.requires_login()
