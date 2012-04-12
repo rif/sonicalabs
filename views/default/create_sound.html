@@ -4,13 +4,6 @@
 <h1>{{=T('Upload a file')}}</h1>
 {{=form}}
 
-<div class="progress">
-    <div class="bar"></div >
-    <div class="percent">0%</div >
-</div>
-    
-<div id="status"></div>
-
 <a href="{{=URL('index')}}">{{=T('Back')}}</a>
 
 {{block right_sidebar}}
@@ -18,7 +11,7 @@
 {{end}}
 
 <script type="text/javascript">
-function uploadFiles(url, files) {
+/*function uploadFiles(url, files) {
   var formData = new FormData();
 
   for (var i = 0, file; file = files[i]; ++i) {
@@ -36,5 +29,5 @@ $(function(){
 	$('input[type="file"]').change(function(){
 		uploadFiles('http://localhost:8080', $(this)[0].files);
 	});	
-});
+});*/
 </script>

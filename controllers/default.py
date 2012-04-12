@@ -43,7 +43,7 @@ def blobstore_upload(form):
 @auth.requires_login()
 def create_sound():
     form = SQLFORM(Sounds)        
-    if form.process().accepted:
+    if form.process(onvalidation=blobstore_upload).accepted:
         new_sound = Sounds(form.vars.id)
         if not new_sound.title and request.vars.file != None:                
             new_sound.update_record(title = request.vars.file.filename)
