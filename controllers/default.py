@@ -42,11 +42,12 @@ def blobstore_upload(form):
 
 @auth.requires_login()
 def create_sound():
+    from os.path import splitext
     form = SQLFORM(Sounds)        
     if form.process(onvalidation=blobstore_upload).accepted:
         new_sound = Sounds(form.vars.id)
         if not new_sound.title and request.vars.file != None:                
-            new_sound.update_record(title = request.vars.file.filename)        
+            new_sound.update_record(title = splitext(request.vars.file.filename)[0])       
         if new_sound.release_date and new_sound.release_date > request.now:
             new_sound.update_record(is_active=False)            
         response.flash = T('Upload complete!')
@@ -56,27 +57,22 @@ def create_sound():
     return locals()
 
 def activate_scheduled_sounds():
-    for_activation = db((Sounds.is_active == False) & (Sounds.release_date != None)).select(orderby=Sounds.release_date)
+    for_activation = db((Sounds.is_active == False) & (Sounds.release_date <= request.now)).select(orderby=Sounds.release_date)
     activated_sounds = 0
-    for sound in for_activation:
-        if sound.release_date < request.now:
-            sound.update_record(is_active=True)
-            mail.send(to=sound.email, subject='%s released a recording' % (sound.username),
-                message = T('You can check the recording here: ') + URL('detail', args=sound.id))
-            activated_sounds += 1
-        else:
-            break # the dates are in order and the if condition suggest we are in the future
-    return 'Activated %d sounds.' % activated_sounds
+    for sound in for_activation:        
+        sound.update_record(is_active=True)
+        mail.send(to=sound.email, subject='%s released a recording' % (sound.username),
+            message = T('You can check the recording here: ') + URL('details', args=sound.id, scheme=True, host=True))
+        activated_sounds += 1        
+    return 'Activated %d sounds. (%s)' % (activated_sounds, request.now)
 
 @auth.requires_login()
 @auth.requires_signature()
-def update_sound():
+def update_sound():    
     sound = Sounds(a0) or redirect(URL('index'))
     form = SQLFORM(Sounds, sound, fields=['title', 'description', 'keywords', 'language', 'price', 'release_date', 'email' , 'is_active'], showid=False)
     if form.process().accepted:
-        new_sound = Sounds(form.vars.id)
-        if not new_sound.title and request.vars.file != None:                
-            new_sound.update_record(title = request.vars.file.filename)        
+        new_sound = Sounds(form.vars.id)        
         if new_sound.release_date and new_sound.release_date > request.now:
             new_sound.update_record(is_active=False)
         response.flash = T('Sound info updated!')
