@@ -23,6 +23,8 @@ def record():
     return locals()
 
 def clean_uplad_file(form):
+    if not form.vars.title and form.vars.file != None:                
+        form.vars.title = splitext(request.vars.file.filename)[0]
     if request.env.web2py_runtime_gae:
         form.vars.file = None
 
@@ -32,8 +34,7 @@ def create_sound():
     form = SQLFORM(Sounds)    
     if form.process(onvalidation=clean_uplad_file).accepted:
         new_sound = Sounds(form.vars.id)
-        if not new_sound.title and request.vars.file != None:                
-            new_sound.update_record(title = splitext(request.vars.file.filename)[0])       
+               
         if new_sound.release_date and new_sound.release_date > request.now:
             new_sound.update_record(is_active=False)            
         response.flash = T('Upload complete!')
@@ -43,14 +44,13 @@ def create_sound():
     return locals()
 
 
-def set_download_info():
-    print "xxxxxxxxxxxxxxxxxxxxxxx: ", a0, a1, request.args(2)
-    sound = db(Sounds.download_uuid == a0).select().first()
+def set_download_info():    
+    sound = db(Sounds.download_uuid == request.vars.uuid).select().first()
     if not sound:
         raise HTTP(404)
     print sound
-    sound.update_record(download_server = request.args(1))
-    sound.update_record(download_key = request.args(2))
+    sound.update_record(download_server = request.vars.host)
+    sound.update_record(download_key = request.vars.key)
     print sound
 
 def activate_scheduled_sounds():
@@ -81,11 +81,6 @@ def update_sound():
 @auth.requires_login()
 @auth.requires_signature()
 def delete_sound():    
-    if request.env.web2py_runtime_gae:
-        pass
-        #from google.appengine.ext import blobstore
-        #sound = Sounds(a0) or redirect(URL('index'))
-        #blobstore.delete_async(sound.blob_key)
     crud.delete(Sounds, a0, next=URL('my_uploads', user_signature=True), message=T('Sound deleted!'))
     return locals()
 
@@ -127,15 +122,6 @@ def user():
 
 def download():
     return response.download(request,db)
-
-def download_blob():    
-    if request.env.web2py_runtime_gae: 
-        from google.appengine.ext import blobstore        
-        sound = Sounds(a0) or redirect(URL('index'))
-        blob_info = blobstore.BlobInfo.get(sound.blob_key)
-        return response.stream(blob_info.open())                
-    else:        
-        return response.download(request,db)
 
 def about():
     return dict()
