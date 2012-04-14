@@ -17,24 +17,25 @@
 
 <script type="text/javascript">
 $("#sounds_language").chosen();
-function uploadFiles(url, files) {
+function uploadFiles(url, files) {  
   var formData = new FormData();
 
-  for (var i = 0, file; file = files[i]; ++i) {
-    formData.append("uuid", '{{=response.uuid.rsplit(".")[-1]}}');
+  formData.append("uuid", $("#sounds_download_uuid").val());
+  for (var i = 0, file; file = files[i]; ++i) {    
     formData.append("upload", file);
-  }
-
+  }  
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url, true);
   xhr.onload = function(e) { console.log("uploading..."); };
-
-  xhr.send(formData);  // multipart/form-data  
+  xhr.send(formData);  // multipart/form-data    
+  console.log("done!");
 }
 
 $(function(){
-	$('input[type="file"]').change(function(){
-		uploadFiles('http://localhost:6060/process', $(this)[0].files);
+  //$("#sounds_download_uuid__row").hide();
+	$('form').submit(function(){
+		uploadFiles('http://localhost:6060/process', $('input[type="file"]')[0].files);
+    return true;
 	});	
 });
 </script>

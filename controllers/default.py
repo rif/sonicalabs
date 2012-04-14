@@ -29,10 +29,9 @@ def clean_uplad_file(form):
 @auth.requires_login()
 def create_sound():
     from os.path import splitext
-    form = SQLFORM(Sounds)            
+    form = SQLFORM(Sounds)    
     if form.process(onvalidation=clean_uplad_file).accepted:
         new_sound = Sounds(form.vars.id)
-        new_sound.update_record(download_uuid = response.uuid.rsplit(".")[-1])
         if not new_sound.title and request.vars.file != None:                
             new_sound.update_record(title = splitext(request.vars.file.filename)[0])       
         if new_sound.release_date and new_sound.release_date > request.now:
@@ -40,16 +39,19 @@ def create_sound():
         response.flash = T('Upload complete!')
         redirect(URL('my_uploads', user_signature=True))
     elif form.errors:
-       response.flash = T('form has errors') 
+       response.flash = T('form has errors')        
     return locals()
 
 
 def set_download_info():
-    print a0, a1
-    sound = Sounds(download_uuid == a0)
+    print "xxxxxxxxxxxxxxxxxxxxxxx: ", a0, a1, request.args(2)
+    sound = db(Sounds.download_uuid == a0).select().first()
     if not sound:
         raise HTTP(404)
-    sound.update_record(download_url = a1)
+    print sound
+    sound.update_record(download_server = request.args(1))
+    sound.update_record(download_key = request.args(2))
+    print sound
 
 def activate_scheduled_sounds():
     for_activation = db((Sounds.is_active == False) & (Sounds.release_date <= request.now)).select(orderby=Sounds.release_date)
@@ -80,9 +82,10 @@ def update_sound():
 @auth.requires_signature()
 def delete_sound():    
     if request.env.web2py_runtime_gae:
-        from google.appengine.ext import blobstore
-        sound = Sounds(a0) or redirect(URL('index'))
-        blobstore.delete_async(sound.blob_key)
+        pass
+        #from google.appengine.ext import blobstore
+        #sound = Sounds(a0) or redirect(URL('index'))
+        #blobstore.delete_async(sound.blob_key)
     crud.delete(Sounds, a0, next=URL('my_uploads', user_signature=True), message=T('Sound deleted!'))
     return locals()
 
