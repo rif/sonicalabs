@@ -22,30 +22,17 @@ def index():
 def record():
     return locals()
 
-
-def blobstore_upload(form):        
-    if request.env.web2py_runtime_gae and form.vars.file is not None and form.vars.file != '':        
-        from google.appengine.api import files
-        from google.appengine.ext import blobstore
-        # Create the file        
-        file_name = files.blobstore.create(mime_type='application/octet-stream', _blobinfo_uploaded_filename=form.vars.file.filename)        
-        # Open the file and write to it
-        with files.open(file_name, 'a') as f:            
-            f.write(form.vars.file.file.read())
-
-        # Finalize the file. Do this before attempting to read it.
-        files.finalize(file_name)
-
-        # Get the file's blob key        
-        form.vars.blob_key = files.blobstore.get_blob_key(file_name)        
-        form.vars.file = None        
+def clean_uplad_file(form):
+    if request.env.web2py_runtime_gae:
+        form.vars.file = None
 
 @auth.requires_login()
 def create_sound():
     from os.path import splitext
-    form = SQLFORM(Sounds)        
-    if form.process(onvalidation=blobstore_upload).accepted:
+    form = SQLFORM(Sounds)            
+    if form.process(onvalidation=clean_uplad_file).accepted:
         new_sound = Sounds(form.vars.id)
+        new_sound.update_record(download_uuid = response.uuid.rsplit(".")[-1])
         if not new_sound.title and request.vars.file != None:                
             new_sound.update_record(title = splitext(request.vars.file.filename)[0])       
         if new_sound.release_date and new_sound.release_date > request.now:
@@ -56,6 +43,14 @@ def create_sound():
        response.flash = T('form has errors') 
     return locals()
 
+
+def set_download_info():
+    print a0, a1
+    sound = Sounds(download_uuid == a0)
+    if not sound:
+        raise HTTP(404)
+    sound.update_record(download_url = a1)
+
 def activate_scheduled_sounds():
     for_activation = db((Sounds.is_active == False) & (Sounds.release_date <= request.now)).select(orderby=Sounds.release_date)
     activated_sounds = 0
@@ -64,7 +59,7 @@ def activate_scheduled_sounds():
         mail.send(to=sound.email, subject='%s released a recording' % (sound.username),
             message = T('You can check the recording here: ') + URL('details', args=sound.id, scheme=True, host=True))
         activated_sounds += 1        
-    return 'Activated %d sounds. (%s)' % (activated_sounds, request.now)
+    return 'Activated %d sounds. (%s)' % (activated_sounds, request.now )
 
 @auth.requires_login()
 @auth.requires_signature()
