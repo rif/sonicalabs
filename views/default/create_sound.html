@@ -10,28 +10,31 @@
 {{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
 {{end}}
 
+{{=response.toolbar()}}
+
 <link href="{{=URL('static','css/chosen.css')}}" rel="stylesheet" type="text/css" />
 <script src="{{=URL('static','js/chosen.jquery.min.js')}}" type="text/javascript"></script>
 
 <script type="text/javascript">
 $("#sounds_language").chosen();
-/*function uploadFiles(url, files) {
+function uploadFiles(url, files) {
   var formData = new FormData();
 
   for (var i = 0, file; file = files[i]; ++i) {
-    formData.append(file.name, file);
+    formData.append("uuid", '{{=response.uuid.rsplit(".")[-1]}}');
+    formData.append("upload", file);
   }
 
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url, true);
   xhr.onload = function(e) { console.log("uploading..."); };
 
-  xhr.send(formData);  // multipart/form-data
+  xhr.send(formData);  // multipart/form-data  
 }
 
 $(function(){
 	$('input[type="file"]').change(function(){
-		uploadFiles('http://localhost:8080', $(this)[0].files);
+		uploadFiles('http://localhost:6060/process', $(this)[0].files);
 	});	
-});*/
+});
 </script>
