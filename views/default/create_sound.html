@@ -39,7 +39,7 @@ $(function(){
     action: 'http://avocadosoft.ro:6060/process',
     //action: 'http://localhost:6060/process',
     params: {uuid: $("#sounds_uuid").val()},
-    allowedExtensions: ['mp3', 'wav', 'ogg', 'oga', 'aac', 'mp4', 'mp2'],
+    allowedExtensions: ['mp3', 'wav', 'ogg', 'oga', 'aac', 'mp4', 'mp2', 'flac', 'au', 'ac3'],
     onSubmit: function(id, fileName){
       $(".qq-upload-button").hide();
     },
