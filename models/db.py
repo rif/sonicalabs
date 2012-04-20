@@ -83,13 +83,13 @@ languages = [u'Abkhaz', u'Afar', u'Akan', u'Albanian', u'Alsatian', u'Amharic', 
 import uuid
 
 Sounds = db.define_table("sounds",
-    Field('title', required=True),
+    Field('title'),
     Field('description', 'text'),
     Field('keywords', comment=T('Comma separated key words')),
-    Field('download_uuid', length=64, default=lambda:str(uuid.uuid4())),
+    Field('uuid', length=64, default=lambda:str(uuid.uuid4())),
     Field('download_server', writable=False, readable=False),
     Field('download_key', writable=False, readable=False),
-    Field('file', 'upload', requires=IS_UPLOAD_FILENAME(extension='mp3', error_message=T('Please upload an mp3 file')), comment=T('MP3 file. 10Mb size limit.')),
+    Field('status', writable=False, readable=False, default=T("Processing...")),    
     Field('language', 'list:string', requires=IS_IN_SET(languages), default='English'),
     Field('price', 'double', default=0.0, comment='$USD'),
     Field('length', 'double', writable=False, readable=False),
@@ -104,6 +104,7 @@ Sounds.username = Field.Virtual(get_username)
 Sounds.owner_email = Field.Virtual(get_email)
 Sounds.download_url = Field.Virtual(get_download_url)
 Sounds.delete_url = Field.Virtual(get_delete_url)
+Sounds.is_active.default = False
 
 a0,a1 = request.args(0), request.args(1)
 active_sounds = Sounds.is_active == True

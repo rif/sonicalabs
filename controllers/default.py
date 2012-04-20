@@ -13,7 +13,8 @@ def index():
     if form.process(message_onsuccess="").accepted and form.vars.query:
         values = form.vars.query        
         sounds = db(active_sounds).select(orderby=~Sounds.created_on,
-            limitby=paginator.limitby()).find(lambda s: values.lower() in s.title.lower() or values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
+            limitby=paginator.limitby()).find(lambda s: values.lower() in s.title.lower() or \
+             values.lower() in s.description.lower() or values.lower() in s.keywords.lower())
     else:
         sounds = db(active_sounds).select(orderby=~Sounds.created_on, limitby=paginator.limitby())
     return locals()
@@ -22,42 +23,60 @@ def index():
 def record():
     return locals()
 
-def clean_uplad_file(form):
-    if not form.vars.title and form.vars.file != None:                
-        form.vars.title = splitext(request.vars.file.filename)[0]
-    if request.env.web2py_runtime_gae:
-        form.vars.file = None
-
 @auth.requires_login()
 def create_sound():
-    from os.path import splitext
+    from os.path import splitext    
     form = SQLFORM(Sounds)    
-    if form.process(onvalidation=clean_uplad_file).accepted:
-        new_sound = Sounds(form.vars.id)
-               
-        if new_sound.release_date and new_sound.release_date > request.now:
-            new_sound.update_record(is_active=False)            
+    if form.process(dbio=False).accepted:    
+        sound = db(Sounds.uuid == form.vars.uuid).select().first()        
+        if sound:       
+            if not form.vars.title: # keep the name of the file as title
+                form.vars.title = sound.title
+            sound.update_record(**dict(form.vars))
+            if sound.release_date and sound.release_date > request.now:            
+                sound.status = T('Scheduled for') + ' ' + str(sound.release_date)
+                sound.is_active = False
+            else:
+                sound.is_active = True
+                sound.status = T('Ready')            
+            sound.created_by = sound.modified_by = auth.user_id            
+            sound.update_record()            
+        else:            
+            Sounds.insert(**dict(form.vars))                    
         response.flash = T('Upload complete!')
         redirect(URL('my_uploads', user_signature=True))
     elif form.errors:
-       response.flash = T('form has errors')        
+       response.flash = T('form has errors')    
     return locals()
 
-
-def set_download_info():    
-    sound = db(Sounds.download_uuid == request.vars.uuid).select().first()
-    if not sound:
-        raise HTTP(404)
-    print sound
-    sound.update_record(download_server = request.vars.host)
-    sound.update_record(download_key = request.vars.key)
-    print sound
+def set_download_info():
+    # import logging
+    # logger = logging.getLogger("test")
+    # logger.info("sssssssssssssssssssssssssssssss")
+    sound = db(Sounds.uuid == request.vars.uuid).select().first() 
+    if sound: 
+        sound.update_record(uuid = request.vars.uuid, download_server=request.vars.host, download_key=request.vars.key)
+        if sound.release_date and sound.release_date > request.now:            
+            sound.status = T('Scheduled for') + ' ' + str(sound.release_date)
+        else:
+            sound.is_active = True
+            sound.status = T('Ready')
+    else:
+        id = Sounds.insert(uuid = request.vars.uuid, download_server=request.vars.host, download_key=request.vars.key)
+        sound = Sounds(id)
+        from os.path import splitext
+        title = splitext(request.vars.filename)[0]
+        sound.title = title
+    sound.update_record()
+    return "done!"
 
 def activate_scheduled_sounds():
     for_activation = db((Sounds.is_active == False) & (Sounds.release_date <= request.now)).select(orderby=Sounds.release_date)
     activated_sounds = 0
     for sound in for_activation:        
-        sound.update_record(is_active=True)
+        sound.is_active=True
+        sound.status = T('Ready')        
+        sound.update_record()
         mail.send(to=sound.email, subject='%s released a recording' % (sound.username),
             message = T('You can check the recording here: ') + URL('details', args=sound.id, scheme=True, host=True))
         activated_sounds += 1        
@@ -80,7 +99,11 @@ def update_sound():
 
 @auth.requires_login()
 @auth.requires_signature()
-def delete_sound():    
+def delete_sound():
+    if request.env.web2py_runtime_gae:
+        from google.appengine.api import urlfetch
+        sound = Sounds(a0) or redirect(URL('index'))
+        urlfetch.fetch(sound.delete_url)
     crud.delete(Sounds, a0, next=URL('my_uploads', user_signature=True), message=T('Sound deleted!'))
     return locals()
 

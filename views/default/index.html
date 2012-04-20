@@ -13,7 +13,7 @@
 <div class="sound">
   <div class="title"><a href="{{=sound.download_url}}" title="{{=sound.title}}" type="{{=sound.mime_type}}"><img src="{{=Gravatar(sound.owner_email, size=350).thumb}}" alt="" style="display:none" /></a><a href="{{=URL('details', args=sound.id)}}">{{=sound.title}}</a></div>
   <div class="info">{{=T('Added')}} {{=prettydate(sound.created_on)}} {{=T('by')}} {{=sound.username}} {{=sound.play_count}} {{=T('views')}}</div>
-  <div class="description">{{=sound.description[:100]}}...</div>  
+  <div class="description">{{if sound.description:}}{{=sound.description[:100]}}...{{else:}}{{pass}}</div>  
 </div>
 {{pass}}
 
@@ -23,9 +23,11 @@
 {{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
 {{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
 <h4>{{=T("Explore")}}</h4>
+{{if auth.is_logged_in():}}
 <ul>
   <li>{{=A(T("My uploads"), _href=URL('my_uploads', user_signature=True))}}</li>  
 </ul>
+{{pass}}
 <div id="most_popular">
   {{=LOAD('default','most_popular',ajax=True)}}
 </div>
