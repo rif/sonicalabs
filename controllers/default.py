@@ -26,7 +26,7 @@ def record():
 @auth.requires_login()
 def create_sound():
     from os.path import splitext    
-    form = SQLFORM(Sounds)    
+    form = SQLFORM(Sounds, submit_button=T('Share'))
     if form.process(dbio=False).accepted:    
         sound = db(Sounds.uuid == form.vars.uuid).select().first()        
         if sound:       
@@ -46,7 +46,8 @@ def create_sound():
         response.flash = T('Upload complete!')
         redirect(URL('my_uploads', user_signature=True))
     elif form.errors:
-       response.flash = T('form has errors')    
+       response.flash = T('form has errors')
+    response.subtitle='Upload Your Experience'  
     return locals()
 
 def set_download_info():

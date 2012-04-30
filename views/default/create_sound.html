@@ -1,10 +1,10 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,True}}
 {{extend 'layout.html'}}
 
-<h1>{{=T('Upload a file')}}</h1>
+<h3>{{=T('Upload an Experience')}}</h3>
 <div id="file-uploader">       
     <noscript>          
-        <p>{{=T("Please enable JavaScript to use file uploader.")}}</p>
+        <p>{{=T("Please enable JavaScript to use the file uploader.")}}</p>
         <!-- or put a simple form for upload here -->
     </noscript>         
 </div>
@@ -27,6 +27,8 @@
 <script src="{{=URL('static','js/chosen.jquery.min.js')}}" type="text/javascript"></script>
 <script src="{{=URL('static','js/fileuploader.js')}}" type="text/javascript"></script>
 
+{{=response.toolbar()}}
+
 <script type="text/javascript">
 $(function(){
   $("#sounds_language").chosen();
@@ -44,15 +46,15 @@ $(function(){
       $(".qq-upload-button").hide();
     },
     onComplete: function(id, fileName){
-      $("#file-uploader").replaceWith('<h4 id="filename">File name: ' + fileName + '</h4>');
+      $("#file-uploader").replaceWith('<h4 id="filename">Experience name: ' + fileName + '</h4>');
     }
   });
   $("form").submit(function(){
     if($("#filename").length == 0){      
-      alert("Pleas upload a file!");
+      alert("Please upload an audio file!");
       return false;
     } 
     return true;
-  });
+  });  
 });
 </script>
