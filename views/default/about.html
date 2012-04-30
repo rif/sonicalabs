@@ -16,18 +16,6 @@ in their own words. It is audio ONLY, so you can carry it with you everywhere on
 because we don’t want to make the same mistakes all over again.</p>
 <p>It’s an Audio Storytelling, if you wish, one that is not told by actors, but by regular people.</p>
 
-{{block right_sidebar}}
-{{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
-{{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
-<h4>{{=T("Explore")}}</h4>
-<ul>
-  <li>{{=A(T("My uploads"), _href=URL('my_uploads', user_signature=True))}}</li>  
-</ul>
-<div id="most_popular">
-  {{=LOAD('default','most_popular',ajax=True)}}
-</div>
-{{end}}
-
 <script type="text/javascript">        
   $("#no_table_query").one("focus", function() {
       $(this).val("");

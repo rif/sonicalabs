@@ -64,18 +64,6 @@ Company’s services, and you agree to update your Account information to keep i
 You agree that The Company may store and use the information you provide for use in maintaining and
 billing fees to your Account.</p>
 
-{{block right_sidebar}}
-{{=A(T("Upload a file"), _href=URL('create_sound'), _class='button', _style='margin-top: 1em;')}}
-{{=A(T("Record"), _href=URL('record'), _class='button', _style='margin-top: 1em;')}}
-<h4>{{=T("Explore")}}</h4>
-<ul>
-  <li>{{=A(T("My uploads"), _href=URL('my_uploads', user_signature=True))}}</li>  
-</ul>
-<div id="most_popular">
-  {{=LOAD('default','most_popular',ajax=True)}}
-</div>
-{{end}}
-
 <script type="text/javascript">        
   $("#no_table_query").one("focus", function() {
       $(this).val("");

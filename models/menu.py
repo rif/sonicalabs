@@ -5,8 +5,8 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.title = ' SonicaLabs'
-response.subtitle = T('Experience THE EXPERIENCE')
+response.title = 'Voice Your Experience'
+response.subtitle = T('')
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
 response.meta.author = 'Radu Fericean <radu.fericean@wisebiz-group.com>'
