@@ -10,7 +10,7 @@
 # request.requires_https()
 
 if not request.env.web2py_runtime_gae:    
-    db = DAL('sqlite://storage.sqlite', migrate_enabled=False)
+    db = DAL('sqlite://storage.sqlite', migrate_enabled=True)
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
     db = DAL('google:datastore', migrate_enabled=False)
