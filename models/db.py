@@ -29,11 +29,11 @@ response.generic_patterns = ['*'] if request.is_local else []
 # response.optimize_js = 'concat,minify,inline'
 
 from gluon.tools import Auth, Crud, Service, PluginManager, prettydate
-auth = Auth(db, hmac_key=Auth.get_or_create_key())
+auth = Auth(db)
 crud, service, plugins = Crud(db), Service(), PluginManager()
 
 ## create all tables needed by auth if not custom tables
-auth.define_tables()
+auth.define_tables(username=False, signature=False)
 
 ## configure email
 mail=auth.settings.mailer
@@ -109,3 +109,6 @@ Sounds.is_active.default = False
 a0,a1 = request.args(0), request.args(1)
 active_sounds = Sounds.is_active == True
 user_sounds = Sounds.created_by == auth.user_id
+
+## after defining tables, uncomment below to enable auditing
+# auth.enable_record_versioning(db)
