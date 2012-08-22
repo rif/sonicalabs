@@ -9,7 +9,7 @@
 ## be redirected to HTTPS, uncomment the line below:
 # request.requires_https()
 
-if not request.env.web2py_runtime_gae:    
+if not request.env.web2py_runtime_gae:
     db = DAL('sqlite://storage.sqlite', migrate_enabled=True)
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
@@ -33,7 +33,7 @@ auth = Auth(db)
 crud, service, plugins = Crud(db), Service(), PluginManager()
 
 ## create all tables needed by auth if not custom tables
-auth.define_tables(username=False, signature=False)
+auth.define_tables()#(username=False, signature=False)
 
 ## configure email
 mail=auth.settings.mailer
@@ -51,7 +51,7 @@ use_janrain(auth,filename='private/janrain.key')
 
 # if request.env.web2py_runtime_gae:            # if running on Google App Engine
 #     from gluon.contrib.login_methods.gae_google_account import GaeGoogleAccount
-#     auth.settings.login_form = GaeGoogleAccount()    
+#     auth.settings.login_form = GaeGoogleAccount()
 #     #auth.settings.actions_disabled.append('profile')
 
 from gravatar import Gravatar
@@ -89,7 +89,7 @@ Sounds = db.define_table("sounds",
     Field('uuid', length=64, default=lambda:str(uuid.uuid4())),
     Field('download_server', writable=False, readable=False),
     Field('download_key', writable=False, readable=False),
-    Field('status', writable=False, readable=False, default=T("Processing...")),    
+    Field('status', writable=False, readable=False, default=T("Processing...")),
     Field('language', 'list:string', requires=IS_IN_SET(languages), default='English'),
     Field('price', 'double', default=0.0, comment='$USD'),
     Field('length', 'double', writable=False, readable=False),
