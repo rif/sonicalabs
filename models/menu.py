@@ -10,7 +10,7 @@ response.subtitle = T('')
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
 response.meta.author = 'Radu Fericean <radu.fericean@wisebiz-group.com>'
-response.meta.description = 'SonicaLabs is a webapp for sounds/audio storage and presentation'
+response.meta.description = 'Talkexperience is a webapp for sounds/audio storage and presentation'
 response.meta.keywords = 'audio, sound, music, record sound, sharing'
 response.meta.generator = 'Web2py Web Framework'
 
@@ -42,4 +42,3 @@ def _():
                 ]
          )]
 _()
-

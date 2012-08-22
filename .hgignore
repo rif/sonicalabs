@@ -11,3 +11,4 @@ databases/*
 sessions/*
 errors/*
 *.sublime*
+.sass-cache/*
